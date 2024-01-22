@@ -1,0 +1,1 @@
+mongodb+srv://kingbobjrthethird1:<password>@chesslab.c4keppz.mongodb.net/?retryWrites=true&w=majority
