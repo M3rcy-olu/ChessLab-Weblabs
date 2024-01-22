@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Router } from "react-router-dom";
-import NavBar from "./modules/NavBar.js";
+import NavBar from "./pages/NavBar.js";
+import Battle from "./pages/Battle.js";
 
 import jwt_decode from "jwt-decode";
 
@@ -60,12 +61,7 @@ const App = () => {
     // </Routes>
 
     <div className="App-container">
-      <Router>
-        <Home path="App" />
-        <Profile path="/profile/:userId" />
-        <Battle path="Battle" />
-        <Store path="Store" />
-      </Router>
+      <Battle />
     </div>
   );
 };
