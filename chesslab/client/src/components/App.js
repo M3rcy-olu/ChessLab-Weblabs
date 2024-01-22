@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Router } from "react-router-dom";
+import NavBar from "./modules/NavBar.js";
 
 import jwt_decode from "jwt-decode";
 
@@ -43,20 +44,29 @@ const App = () => {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Skeleton
-            path="/"
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userId={userId}
-          />
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    // <Routes>
+    //   <Route
+    //     path="/"
+    //     element={
+    //       <Skeleton
+    //         path="/"
+    //         handleLogin={handleLogin}
+    //         handleLogout={handleLogout}
+    //         userId={userId}
+    //       />
+    //     }
+    //   />
+    //   <Route path="*" element={<NotFound />} />
+    // </Routes>
+
+    <div className="App-container">
+      <Router>
+        <Home path="App" />
+        <Profile path="/profile/:userId" />
+        <Battle path="Battle" />
+        <Store path="Store" />
+      </Router>
+    </div>
   );
 };
 
