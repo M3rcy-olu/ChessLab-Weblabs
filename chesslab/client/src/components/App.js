@@ -65,8 +65,8 @@ const App = () => {
     //   <Route path="*" element={<NotFound />} />
     // </Routes>
 
-    <div className="App-container">
-      <Battle />
+    <div id="app">
+      <ChessBoard />
     </div>
   );
 };
