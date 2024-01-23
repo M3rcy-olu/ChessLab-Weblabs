@@ -1,12 +1,9 @@
-import chessboard from "../modules/ChessBoard.js";
+import React from "react";
+import ChessBoard from "../modules/ChessBoard";
 import "./Battle.css";
 
 const Battle = () => {
-  return (
-    <div className="Battle">
-      <chessBoard />
-    </div>
-  );
+  return <ChessBoard />;
 };
 
 export default Battle;

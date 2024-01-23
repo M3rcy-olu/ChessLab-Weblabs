@@ -63,7 +63,7 @@ const App = () => {
         }
       />
       <Route path="*" element={<NotFound />} />
-      <Route path="board" element={<ChessBoard />} />
+      <Route path="Battle" element={<Battle />} />
     </Routes>
   );
 };
