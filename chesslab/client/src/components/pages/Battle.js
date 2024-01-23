@@ -1,7 +1,11 @@
-import chessboard from "../modules/chessBoard.js";
+import chessboard from "../modules/ChessBoard.js";
 
 const Battle = () => {
-  return <chessboard />;
+  return (
+    <div>
+      <chessBoard />
+    </div>
+  );
 };
 
 export default Battle;

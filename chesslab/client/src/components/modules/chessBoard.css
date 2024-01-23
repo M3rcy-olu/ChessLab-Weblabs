@@ -1,0 +1,27 @@
+#chessboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+}
+
+.row,
+.axis-row {
+  display: flex;
+}
+
+.square,
+.axis {
+  width: 50px; /* adjust as needed */
+  height: 50px; /* adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.black {
+  background-color: #000;
+}

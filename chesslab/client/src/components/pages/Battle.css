@@ -1,0 +1,4 @@
+#battle {
+  display: grid;
+  place-content: center;
+}
