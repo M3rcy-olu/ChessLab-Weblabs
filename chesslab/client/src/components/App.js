@@ -67,18 +67,18 @@ const App = () => {
     <>
       <NavBar />
       <div>
-        <Router>
-          <Home path="Home" />
-          <Battle path="Battle" />
-          <Profile path="Profile" />
-          <Store path="Store" />
-        </Router>
+        <Routes>
+          <Route path="Home" element={<Home />} />
+          <Route path="Profile" element={<Profile />} />
+          <Route path="Battle" element={<Battle />} />
+          <Route path="Store" element={<Home />} />
+        </Routes>
+      </div>
+      <div id="app">
+        <ChessBoard />
+        {/* <Home /> */}
       </div>
     </>
-
-    // <div id="app">
-    //   <ChessBoard />
-    // </div>
   );
 };
 
