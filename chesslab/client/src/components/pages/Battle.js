@@ -1,8 +1,9 @@
 import chessboard from "../modules/ChessBoard.js";
+import "./Battle.css";
 
 const Battle = () => {
   return (
-    <div>
+    <div className="Battle">
       <chessBoard />
     </div>
   );

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Router } from "react-router-dom";
-import NavBar from "./pages/NavBar.js";
+import NavBar from "./modules/NavBar.js";
 import Battle from "./pages/Battle.js";
 import ChessBoard from "./modules/ChessBoard.js";
 import "./App.css";
+import Store from "./pages/Store.js";
+import Profile from "./pages/Profile.js";
+import Home from "./pages/Home.js";
 
 import jwt_decode from "jwt-decode";
 
@@ -61,10 +64,21 @@ const App = () => {
     //   />
     //   <Route path="*" element={<NotFound />} />
     // </Routes>
+    <>
+      <NavBar />
+      <div>
+        <Router>
+          <Home path="Home" />
+          <Battle path="Battle" />
+          <Profile path="Profile" />
+          <Store path="Store" />
+        </Router>
+      </div>
+    </>
 
-    <div id="app">
-      <ChessBoard />
-    </div>
+    // <div id="app">
+    //   <ChessBoard />
+    // </div>
   );
 };
 
