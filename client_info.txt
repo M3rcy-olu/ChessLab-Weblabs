@@ -1,0 +1,2 @@
+id: 354239481317-1dsrl6bn4cc1llfl0npp24k1d0asr9vk.apps.googleusercontent.com
+secret: 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
