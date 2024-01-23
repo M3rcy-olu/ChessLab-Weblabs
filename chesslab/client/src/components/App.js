@@ -66,7 +66,11 @@ const App = () => {
     // </Routes>
 
     <div id="app">
+      <div>
+        <NavBar />
+      </div>
       <ChessBoard />
+      <div></div>
     </div>
   );
 };
