@@ -1,0 +1,16 @@
+/* .App-container {
+  position: absolute;
+  width: 1204px;
+  height: 723px;
+  left: 262px;
+  top: 277px;
+} */
+
+#app {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100vw;
+
+  background-color: #1f1d1d;
+}

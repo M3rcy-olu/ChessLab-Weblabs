@@ -1,29 +1,21 @@
 import React from "react";
-import "./chessBoard.css";
-// Define the size of the chessboard
+import "./ChessBoard.css";
 
-const size = 8;
+const verticalAxis = [1, 2, 3, 4, 5, 6, 7, 8];
+const horizontalAxis = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
-// Create an empty chessboard array
-const chessboard = [];
+export default function ChessBoard() {
+  let board = [];
 
-// Loop through rows
-for (let row = 0; row < size; row++) {
-  // Create an empty row array
-  const rowArray = [];
-
-  // Loop through columns
-  for (let col = 0; col < size; col++) {
-    // Determine the color of the square
-    const color = (row + col) % 2 === 0 ? "white" : "black";
-
-    // Add the square to the row array
-    rowArray.push(color);
+  for (let i = verticalAxis.length - 1; i >= 0; i--) {
+    for (let j = 0; j < horizontalAxis.length; j++) {
+      const squareStr = horizontalAxis[j] + verticalAxis[i];
+      const whiteSquare = (i % 2 === 0 && j % 2 === 0) || (i % 2 === 1 && j % 2 === 1);
+      board.push(
+        <div key={squareStr} className={`square ${whiteSquare ? "white" : "black"}`}></div>
+      );
+    }
   }
 
-  // Add the row to the chessboard array
-  chessboard.push(rowArray);
+  return <div id="chessboard">{board}</div>;
 }
-
-// Print the chessboard
-export default chessboard;

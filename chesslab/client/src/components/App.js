@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Router } from "react-router-dom";
-import NavBar from "./pages/NavBar.js";
+import NavBar from "./modules/NavBar.js";
 import Battle from "./pages/Battle.js";
+import ChessBoard from "./modules/ChessBoard.js";
+import "./App.css";
+import Store from "./pages/Store.js";
+import Profile from "./pages/Profile.js";
+import Home from "./pages/Home.js";
 
 import jwt_decode from "jwt-decode";
 
@@ -45,24 +50,35 @@ const App = () => {
   };
 
   return (
-    // <Routes>
-    //   <Route
-    //     path="/"
-    //     element={
-    //       <Skeleton
-    //         path="/"
-    //         handleLogin={handleLogin}
-    //         handleLogout={handleLogout}
-    //         userId={userId}
-    //       />
-    //     }
-    //   />
-    //   <Route path="*" element={<NotFound />} />
-    // </Routes>
-
-    <div className="App-container">
-      <Battle />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Skeleton
+            path="/"
+            handleLogin={handleLogin}
+            handleLogout={handleLogout}
+            userId={userId}
+          />
+        }
+      />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    // <>
+    //   <NavBar />
+    //   <div>
+    //     <Routes>
+    //       <Route path="Home" element={<Home />} />
+    //       <Route path="Profile" element={<Profile />} />
+    //       <Route path="Battle" element={<Battle />} />
+    //       <Route path="Store" element={<Home />} />
+    //     </Routes>
+    //   </div>
+    //   <div id="app">
+    //     <ChessBoard />
+    //     {/* <Home /> */}
+    //   </div>
+    // </>
   );
 };
 

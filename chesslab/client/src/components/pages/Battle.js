@@ -1,7 +1,12 @@
-import chessboard from "../modules/chessBoard.js";
+import chessboard from "../modules/ChessBoard.js";
+import "./Battle.css";
 
 const Battle = () => {
-  return <chessboard />;
+  return (
+    <div className="Battle">
+      <chessBoard />
+    </div>
+  );
 };
 
 export default Battle;
