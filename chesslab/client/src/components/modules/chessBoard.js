@@ -1,5 +1,5 @@
 import React from "react";
-import "./ChessBoard.css";
+import "./chessBoard.css";
 
 const verticalAxis = [1, 2, 3, 4, 5, 6, 7, 8];
 const horizontalAxis = ["A", "B", "C", "D", "E", "F", "G", "H"];
@@ -17,5 +17,5 @@ export default function ChessBoard() {
     }
   }
 
-  return <div id="chessboard">{board}</div>;
+  return <div className="chessboard">{board}</div>;
 }

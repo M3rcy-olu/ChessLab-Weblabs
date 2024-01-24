@@ -1,7 +1,9 @@
-#chessboard {
-  display: flex;
-  flex-wrap: wrap;
-  width: 400px;
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(8, 100px);
+  grid-template-rows: repeat(8, 100px);
+  width: 800px;
+  height: 800px;
 }
 
 .row,
@@ -11,8 +13,8 @@
 
 .square,
 .axis {
-  width: 50px; /* adjust as needed */
-  height: 50px; /* adjust as needed */
+  width: 100px; /* adjust as needed */
+  height: 100px; /* adjust as needed */
   display: flex;
   justify-content: center;
   align-items: center;

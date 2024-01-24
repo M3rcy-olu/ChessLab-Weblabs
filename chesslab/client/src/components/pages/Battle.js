@@ -6,8 +6,12 @@ import NavBar from "../modules/NavBar";
 const Battle = () => {
   return (
     <div className="Battle">
-      <ChessBoard />
-      <NavBar />
+      <div className="navBar">
+        <NavBar />
+      </div>
+      <div>
+        <ChessBoard />
+      </div>
     </div>
   );
 };
