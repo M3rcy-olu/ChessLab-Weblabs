@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../../utilities.css";
 import "./Skeleton.css";
 import NavBar from "../modules/NavBar";
+import Login from "./login";
 
 const GOOGLE_CLIENT_ID = "354239481317-1dsrl6bn4cc1llfl0npp24k1d0asr9vk.apps.googleusercontent.com";
 
@@ -13,7 +14,7 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
       className="skel"
       style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}
     >
-      <NavBar />
+      <Login />
 
       <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
         {userId ? (
@@ -38,8 +39,6 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
-  const navigate = useNavigate();
 
   const onButtonClick = () => {};
 
