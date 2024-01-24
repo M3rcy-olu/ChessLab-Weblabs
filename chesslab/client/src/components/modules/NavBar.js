@@ -28,7 +28,7 @@ const NavBar = () => {
           <div className="Large-Rectangle"></div>
         </Link>
         <Link to="/Store" className="NavBar-Link-Money">
-          <div className="Large-Button">$0</div>
+          <div className="Large-Button-Money">$0</div>
           <div className="Large-Rectangle"></div>
         </Link>
       </div>
