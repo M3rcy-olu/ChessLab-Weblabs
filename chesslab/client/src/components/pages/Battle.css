@@ -3,7 +3,7 @@
   place-content: center;
   height: 1000px;
   width: 100%;
-  background-color: #1f1d1d;
+  background-color: var(--background) /* These colours can be found in App.css */;
 }
 
 .navBar {

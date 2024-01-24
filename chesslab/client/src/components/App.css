@@ -1,3 +1,12 @@
+:root {
+  --background: #282424;
+  --red: #ff5858;
+  --white: #ffffff;
+  --grey: #191616;
+  --black: #0a0909;
+  --green: #00ff38;
+  --darkGreen: #174e23;
+}
 /* .App-container {
   position: absolute;
   width: 1204px;
@@ -5,12 +14,11 @@
   left: 262px;
   top: 277px;
 } */
-
 #app {
   display: grid;
   place-content: center;
   height: 100vh;
   width: 100vw;
 
-  background-color: #1f1d1d;
+  background-color: var(--background);
 }
