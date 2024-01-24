@@ -11,11 +11,7 @@ export default function ChessBoard() {
   for (let i = verticalAxis.length - 1; i >= 0; i--) {
     for (let j = 0; j < horizontalAxis.length; j++) {
       const number = j + i + 2;
-      if (number % 2 === 0) {
-        board.push(<Tile tile_type="black" />);
-      } else {
-        board.push(<Tile tile_type="white" />);
-      }
+      board.push(<Tile number={number} />);
     }
   }
 

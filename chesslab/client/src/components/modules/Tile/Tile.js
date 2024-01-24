@@ -2,12 +2,16 @@ import React from "react";
 import "./Tile.css";
 
 const Tile = (props) => {
-  const tile_type = props.tile_type;
-  return (
-    <div className={`square ${tile_type}`}>
-      <img src="M3rcy-olu-jimixoso-MideCS-tremavetera\chesslab\client\src\public\images\Chess_pdt60.png" />
-    </div>
-  );
+  const number = props.number;
+  if (number % 2 === 0) {
+    return (
+      <div className="square white">
+        <img src="../../../public/images/Chess_bdt60.png" />
+      </div>
+    );
+  } else {
+    return <div className="square black"></div>;
+  }
 };
 
 export default Tile;
