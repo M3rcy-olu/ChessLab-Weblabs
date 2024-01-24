@@ -49,21 +49,27 @@ const App = () => {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Skeleton
-            path="/"
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userId={userId}
-          />
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-      <Route path="Battle" element={<Battle />} />
-    </Routes>
+    <div>
+      <NavBar />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Skeleton
+              path="/"
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
+              userId={userId}
+            />
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+        <Route path="Battle" element={<Battle />} />
+        <Route path="Profile" element={<Profile />} />
+        <Route path="Store" element={<Store />} />
+      </Routes>
+    </div>
   );
 };
 
