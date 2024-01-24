@@ -1,5 +1,5 @@
 import React from "react";
-import ChessBoard from "../modules/ChessBoard";
+import ChessBoard from "../modules/ChessBoard/chessBoard";
 import "./Battle.css";
 import NavBar from "../modules/NavBar";
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, Router } from "react-router-dom";
 import NavBar from "./modules/NavBar.js";
 import Battle from "./pages/Battle.js";
-import ChessBoard from "./modules/ChessBoard.js";
 import "./App.css";
 import Store from "./pages/Store.js";
 import Profile from "./pages/Profile.js";
