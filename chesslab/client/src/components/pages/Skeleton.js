@@ -5,6 +5,7 @@ import "../../utilities.css";
 import "./Skeleton.css";
 import NavBar from "../modules/NavBar";
 import Login from "./login";
+import Login from "./login";
 
 const GOOGLE_CLIENT_ID = "354239481317-1dsrl6bn4cc1llfl0npp24k1d0asr9vk.apps.googleusercontent.com";
 
@@ -14,7 +15,7 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
       className="skel"
       style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}
     >
-      <Login />
+      <NavBar />
 
       <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
         {userId ? (
@@ -40,10 +41,12 @@ const Login = (props) => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  const navigate = useNavigate();
+
   const onButtonClick = () => {};
 
   return (
-    <div className={"mainContainer skel"}>
+    <div className={"mainContainer"}>
       <div className={"titleContainer"}>
         <div>Login</div>
       </div>
@@ -64,7 +67,6 @@ const Login = (props) => {
           placeholder="Enter your password here"
           onChange={(ev) => setPassword(ev.target.value)}
           className={"inputBox"}
-          type="password"
         />
         <label className="errorLabel">{passwordError}</label>
       </div>

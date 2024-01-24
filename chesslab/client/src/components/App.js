@@ -50,6 +50,8 @@ const App = () => {
 
   return (
     <div>
+      <NavBar />
+
       <Routes>
         <Route
           path="/"
