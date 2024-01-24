@@ -1,3 +1,30 @@
 .skel {
-  background-color: #1f1d1d;
+  background-color: var(--background);
+  font-family: "DM Sans";
+  color: var(--white);
 } /* Fill me in :) */
+
+.inputBox {
+  background-color: var(--grey);
+  font-family: "DM Sans";
+  font-size: 20px;
+  border: 2px;
+  outline-color: var(--black);
+  color: var(--white);
+}
+
+::placeholder {
+  color: var(--white);
+} /* InputField Colour */
+
+::-ms-reveal {
+  background-color: var(--white);
+  border: 100px;
+  border-radius: 5px;
+}
+
+input[type="password"] {
+  font: small-caption;
+  font-size: 20px;
+  color: var(--white);
+}

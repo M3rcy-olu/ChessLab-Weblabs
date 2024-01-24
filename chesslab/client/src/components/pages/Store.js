@@ -5,6 +5,7 @@ import "./Store.css";
 const Store = () => {
   return (
     <div className="store">
+      <NavBar />
       <div className="pawn-purchase">
         <div className="pawn-level">
           <div className="rectangle-8"></div>

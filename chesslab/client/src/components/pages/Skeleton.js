@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import "../../utilities.css";
@@ -34,52 +34,47 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
 };
 
 const Login = (props) => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [emailError, setEmailError] = useState("")
-  const [passwordError, setPasswordError] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const navigate = useNavigate();
 
-  const onButtonClick = () => {
+  const onButtonClick = () => {};
 
-  }
-
- 
-
-  return <div className={"mainContainer"}>
-    <div className={"titleContainer"}>
-      <div>Login</div>
-    </div>
-    <br />
-    <div className={"inputContainer"} >
-      <input
-          value ={email}
-          placeholder = "Enter your email here"
-          onChange = {ev => setEmail(ev.target.value)}
-          className={"inputBox"}/>
-      <label className="errorLabel">{emailError}</label>
-
-    </div>
-    <br />
-    <div className={"inputContainer"}>
-      <input
+  return (
+    <div className={"mainContainer skel"}>
+      <div className={"titleContainer"}>
+        <div>Login</div>
+      </div>
+      <br />
+      <div className={"inputContainer"}>
+        <input
+          value={email}
+          placeholder="Enter your email here"
+          onChange={(ev) => setEmail(ev.target.value)}
+          className={"inputBox"}
+        />
+        <label className="errorLabel">{emailError}</label>
+      </div>
+      <br />
+      <div className={"inputContainer"}>
+        <input
           value={password}
           placeholder="Enter your password here"
-          onChange={ev => setPassword(ev.target.value)}
-          className={"inputBox"} />
-      <label className="errorLabel">{passwordError}</label>
+          onChange={(ev) => setPassword(ev.target.value)}
+          className={"inputBox"}
+          type="password"
+        />
+        <label className="errorLabel">{passwordError}</label>
+      </div>
+      <br />
+      <div className={"inputContainer"}>
+        <input className={"inputButton"} type="button" onClick={onButtonClick} value={"Log in"} />
+      </div>
     </div>
-    <br />
-    <div className={"inputContainer"}>
-      <input
-          className={"inputButton"}
-          type="button"
-          onClick={onButtonClick}
-          value={"Log in"} />
-    </div>
-
-  </div>
+  );
 };
 
 // export default Skeleton;
