@@ -67,6 +67,8 @@ const App = () => {
         />
         <Route path="*" element={<NotFound />} />
         <Route path="Battle" element={<Battle />} />
+        <Route path="Profile" element={<Profile />} />
+        <Route path="Store" element={<Store />} />
       </Routes>
     </div>
   );
