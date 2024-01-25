@@ -25,9 +25,8 @@ const ChessBoard = () => {
   for (let i = verticalAxis.length - 1; i >= 0; i--) {
     for (let j = 0; j < horizontalAxis.length; j++) {
       const number = j + i + 2;
-      let image = "Chess_bdt60.png";
-      pieces.forEach((p) => {});
-      board.push(<Tile image={undefined} number={number} />);
+      let image = pieces.forEach((p) => {});
+      board.push(<Tile image={"/public/images/chess_bdt60.png"} number={number} />);
     }
   }
 
