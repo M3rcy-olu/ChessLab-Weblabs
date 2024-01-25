@@ -45,6 +45,7 @@ const Login = (props) => {
 
   return (
     <div className={"mainContainer"}>
+      <NavBar />
       <div className={"titleContainer"}>
         <div>Login</div>
       </div>
