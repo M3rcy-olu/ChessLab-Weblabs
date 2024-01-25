@@ -1,7 +1,7 @@
 .square,
 .axis {
-  width: 100px; /* adjust as needed */
-  height: 100px; /* adjust as needed */
+  width: 75px; /* adjust as needed */
+  height: 75px; /* adjust as needed */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +16,6 @@
 }
 
 .square img {
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
 }
