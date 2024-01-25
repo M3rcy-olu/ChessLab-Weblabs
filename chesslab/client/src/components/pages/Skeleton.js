@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "../../utilities.css";
 import "./Skeleton.css";
 import NavBar from "../modules/NavBar";
-import Login from "./login";
-import Login from "./login";
 
 const GOOGLE_CLIENT_ID = "354239481317-1dsrl6bn4cc1llfl0npp24k1d0asr9vk.apps.googleusercontent.com";
 
@@ -67,6 +65,7 @@ const Login = (props) => {
           placeholder="Enter your password here"
           onChange={(ev) => setPassword(ev.target.value)}
           className={"inputBox"}
+          type="password"
         />
         <label className="errorLabel">{passwordError}</label>
       </div>

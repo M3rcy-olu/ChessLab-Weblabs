@@ -1,12 +1,3 @@
-:root {
-  --background: #282424;
-  --red: #ff5858;
-  --white: #ffffff;
-  --grey: #191616;
-  --black: #0a0909;
-  --green: #00ff38;
-  --darkGreen: #174e23;
-}
 /* .App-container {
   position: absolute;
   width: 1204px;
@@ -40,7 +31,8 @@
   justify-content: center;
 }
 
-.resultContainer, .historyItem { 
+.resultContainer,
+.historyItem {
   flex-direction: row;
   display: flex;
   width: 400px;

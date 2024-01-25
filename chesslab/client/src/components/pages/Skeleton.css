@@ -1,4 +1,4 @@
-.skel {
+.mainContainer {
   background-color: var(--background);
   font-family: "DM Sans";
   color: var(--white);
@@ -35,17 +35,7 @@ input[type="button"] {
   color: white;
   padding: 12px 24px;
   margin: 8px;
-  font-size: 24px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-input[type="button"] {
-  border: none;
-  background: cornflowerblue;
-  color: white;
-  padding: 12px 24px;
-  margin: 8px;
+  font-family: "DM Sans";
   font-size: 24px;
   border-radius: 8px;
   cursor: pointer;
