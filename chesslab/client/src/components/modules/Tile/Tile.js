@@ -1,17 +1,21 @@
 import React from "react";
 import "./Tile.css";
-import img from "../../../public/images/Chess_bdt60.png";
 
 const Tile = (props) => {
   const number = props.number;
+  const image = props.image;
   if (number % 2 === 0) {
     return (
       <div className="square white">
-        <img src={img} />
+        <img src={image} />
       </div>
     );
   } else {
-    return <div className="square black"></div>;
+    return (
+      <div className="square black">
+        <img src={image} />
+      </div>
+    );
   }
 };
 
