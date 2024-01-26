@@ -6,14 +6,28 @@ const Tile = (props) => {
   const image = props.image;
   if (number % 2 === 0) {
     return (
-      <div className="square white">
-        <img src={image} />
+      <div className="square black">
+        {image !== undefined && (
+          <div
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+            className="chessPiece"
+          ></div>
+        )}
       </div>
     );
   } else {
     return (
-      <div className="square black">
-        <img src={image} />
+      <div className="square white">
+        {image !== undefined && (
+          <div
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+            className="chessPiece"
+          ></div>
+        )}
       </div>
     );
   }

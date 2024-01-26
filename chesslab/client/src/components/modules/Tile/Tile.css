@@ -15,7 +15,18 @@
   background-color: var(--primary);
 }
 
-.square img {
-    width: 65px;
-    height: 65px;
+.square .chessPiece {
+  width: 65px;
+  height: 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70px;
+}
+
+.square .chessPiece:hover {
+  cursor: grab;
+}
+
+.square .chessPiece:active {
+  cursor: grabbing;
 }
