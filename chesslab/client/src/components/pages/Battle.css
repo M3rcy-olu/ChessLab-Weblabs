@@ -1,11 +1,11 @@
 .Battle {
   display: grid;
   place-content: center;
-  height: 1000px;
+  height: 100%;
   width: 100%;
   background-color: var(--background) /* These colours can be found in App.css */;
 }
 
 .navBar {
-  height: 10px;
+  height: 150px;
 }
