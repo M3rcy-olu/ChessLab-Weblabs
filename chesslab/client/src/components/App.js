@@ -23,13 +23,14 @@ import { get, post } from "../utilities";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [useData, setUserData] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
         setUserId(user._id);
-        set;
+        setUserData(user);
       }
     });
   }, []);
@@ -65,10 +66,10 @@ const App = () => {
         />
         <Route path="*" element={<NotFound />} />
         <Route path="Battle" element={<Battle />} />
-        <Route path="Profile" element={<Profile />} />
+        <Route path="Profile" element={<Profile level={12} />} />
         <Route path="Store" element={<Store />} />
       </Routes>
-      <NavBar userId={userId} />
+      <NavBar points={100} />
     </div>
   );
 };

@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const points = props.points;
   return (
     <nav className="NavBar-Container">
       <div className="NavBar-Title">Chess Capital | Chess with Capitalism</div>
@@ -28,7 +29,7 @@ const NavBar = () => {
           <div className="Large-Rectangle"></div>
         </Link>
         <Link to="/Store" className="NavBar-Link-Money">
-          <div className="Large-Button-Money">0.00</div>
+          <div className="Large-Button-Money">{points}</div>
           <div className="Large-Rectangle"></div>
         </Link>
       </div>

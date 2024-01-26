@@ -2,14 +2,21 @@ import React from "react";
 import "./Profile.css";
 import NavBar from "../modules/NavBar";
 
-const Profile = () => {
+const Profile = (props) => {
+  const level = props.level;
+  const rank = props.rank;
+  const plays = props.plays;
+  const wins = props.wins;
+  const losses = props.losses;
+  const draws = props.draws;
+  const points = props.points;
   return (
     <div className="profile-page">
       {/* <NavBar /> */}
       <div className="profile">
         <div className="level">
           <div className="level2">Level:</div>
-          <div className="_9000">9000</div>
+          <div className="_9000">{level}</div>
         </div>
         <div className="rank">
           <div className="rank2">Rank:</div>
@@ -24,25 +31,25 @@ const Profile = () => {
         <div className="divider"></div>
         <div className="wallet">
           <div className="current-wallet">Current Wallet:</div>
-          <div className="_0-00">$0.00</div>
+          <div className="_0-00">${points}</div>
         </div>
         <div className="stats">
           <div className="numbers">
             <div className="plays">
               <div className="plays2">Plays:</div>
-              <div className="_0">0</div>
+              <div className="_0">{plays}</div>
             </div>
             <div className="wins">
               <div className="wins2">Wins:</div>
-              <div className="_02">0</div>
+              <div className="_02">{wins}</div>
             </div>
             <div className="losses">
               <div className="losses2">Losses:</div>
-              <div className="_03">0</div>
+              <div className="_03">{losses}</div>
             </div>
             <div className="draws">
               <div className="draws2">Draws:</div>
-              <div className="_04">0</div>
+              <div className="_04">{draws}</div>
             </div>
           </div>
           <div className="visuals">
