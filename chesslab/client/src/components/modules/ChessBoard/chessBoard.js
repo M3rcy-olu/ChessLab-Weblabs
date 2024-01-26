@@ -54,7 +54,7 @@ const ChessBoard = () => {
 
     if (element.classList.contains("chessPiece") && chessboard) {
       //Calculation for which chess tile a piece is hovering over
-      setgridX(Math.round(((e.clientX - chessboard.offsetLeft - 35) * 1.25) / 100));
+      setgridX(Math.round(((e.clientX - chessboard.offsetLeft) * 1.25) / 100));
       setgridY(Math.abs(Math.round(((e.clientY - chessboard.offsetTop - 600) * 1.25) / 100)));
 
       const x = e.clientX - 35;
