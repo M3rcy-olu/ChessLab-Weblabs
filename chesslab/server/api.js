@@ -11,6 +11,7 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+k;
 
 // import authentication library
 const auth = require("./auth");
@@ -37,6 +38,12 @@ router.post("/initsocket", (req, res) => {
   if (req.user)
     socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
   res.send({});
+});
+
+router.get("Points", (req, res) => {
+  Points.find({ user: req.user.username }).then((points) => {
+    res.send(points);
+  });
 });
 
 // |------------------------------|
