@@ -1,23 +1,156 @@
-.store,
-.store * {
+.store-page,
+.store-page * {
   box-sizing: border-box;
 }
-.store {
+.store-page {
   background: #282424;
-  width: 17280px;
-  height: 11170px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
   overflow: hidden;
 }
-
-.pawn-purchase {
+.nav-bar-v-2 {
+  width: 1728px;
+  height: 184px;
   position: absolute;
-  inset: 0;
+  left: 0px;
+  top: 0px;
 }
+.navbar-black {
+  background: #1a1616;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 92.93%;
+  top: 0%;
+  height: 7.07%;
+  box-shadow: 0px 4px 12.7px 4px rgba(0, 0, 0, 0.25);
+}
+/* .home {
+  position: absolute;
+  right: 88.66%;
+  left: 1.33%;
+  width: 10.01%;
+  bottom: 12.5%;
+  top: 46.2%;
+  height: 41.3%;
+}
+.rectangle-8 {
+  background: #2b2121;
+  border-radius: 82px;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
+}
+.button {
+  color: #ff5858;
+  text-align: center;
+  font-family: "DmSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  right: 6.97%;
+  left: 6.97%;
+  width: 86.06%;
+  bottom: 25.22%;
+  top: 24.35%;
+  height: 50.43%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile {
+  position: absolute;
+  right: 76.62%;
+  left: 13.37%;
+  width: 10.01%;
+  bottom: 12.5%;
+  top: 46.2%;
+  height: 41.3%;
+}
+.battle {
+  position: absolute;
+  right: 62.15%;
+  left: 25.41%;
+  width: 12.44%;
+  bottom: 12.5%;
+  top: 46.2%;
+  height: 41.3%;
+}
+.store2 {
+  position: absolute;
+  right: 47.69%;
+  left: 39.87%;
+  width: 12.44%;
+  bottom: 12.5%;
+  top: 46.2%;
+  height: 41.3%;
+}
+.stats {
+  position: absolute;
+  right: 2.43%;
+  left: 85.13%;
+  width: 12.44%;
+  bottom: 12.5%;
+  top: 46.2%;
+  height: 41.3%;
+}
+.button2 {
+  color: #00ff29;
+  text-align: right;
+  font-family: "DmSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  right: 6.97%;
+  left: 6.97%;
+  width: 86.06%;
+  bottom: 25.22%;
+  top: 24.35%;
+  height: 50.43%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.chess-capital-chess-with-capitalism {
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 555px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chess-capital-chess-with-capitalism-span {
+  color: #ffffff;
+  font-family: "DmSans-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.chess-capital-chess-with-capitalism-span2 {
+  color: #ffffff;
+  font-family: "DmSans-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+} */
+/* .pawn-purchase {
+  position: relative;
+  inset: 0;
+} */
 .pawn-level {
   width: 151px;
   height: 54px;
-  position: absolute;
+  position: relative;
   left: 706px;
   top: 916px;
 }
@@ -27,7 +160,7 @@
   font-family: "DmSans-Regular", sans-serif;
   font-size: 32px;
   font-weight: 400;
-  position: absolute;
+  position: relative;
   right: 6.97%;
   left: 6.97%;
   width: 86.06%;
@@ -76,10 +209,10 @@
   align-items: center;
   justify-content: center;
 }
-.bishop-purchase {
+/* .bishop-purchase {
   position: absolute;
   inset: 0;
-}
+} */
 .bishop-level {
   width: 151px;
   height: 54px;
@@ -125,10 +258,10 @@
   align-items: center;
   justify-content: center;
 }
-.knight-pruchase {
+/* .knight-pruchase {
   position: absolute;
   inset: 0;
-}
+} */
 .knight-level {
   width: 151px;
   height: 54px;
@@ -174,10 +307,10 @@
   align-items: center;
   justify-content: center;
 }
-.rook-purchase {
+/* .rook-purchase {
   position: absolute;
   inset: 0;
-}
+} */
 .rook-level {
   width: 151px;
   height: 54px;
@@ -223,10 +356,10 @@
   align-items: center;
   justify-content: center;
 }
-.queen-purchase {
+/* .queen-purchase {
   position: absolute;
   inset: 0;
-}
+} */
 .queen-level {
   width: 151px;
   height: 54px;
@@ -272,10 +405,10 @@
   align-items: center;
   justify-content: center;
 }
-.king-purchase {
+/* .king-purchase {
   position: absolute;
   inset: 0;
-}
+} */
 .king-level {
   width: 151px;
   height: 54px;
@@ -321,10 +454,10 @@
   align-items: center;
   justify-content: center;
 }
-.wallet {
+/* .wallet {
   position: absolute;
   inset: 0;
-}
+} */
 .current-wallet {
   color: #ffffff;
   text-align: center;

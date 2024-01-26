@@ -4,8 +4,10 @@ import "./Store.css";
 
 const Store = () => {
   return (
-    <div className="store">
-      <NavBar />
+    <div className="store-page">
+      <div className="nav-bar-v-2">
+        <div className="navbar-black"></div>
+      </div>
       <div className="pawn-purchase">
         <div className="pawn-level">
           <div className="rectangle-8"></div>
@@ -13,6 +15,7 @@ const Store = () => {
         </div>
         <div className="pawn">
           <div className="button4">
+            Upgrade
             <div className="rectangle-8"></div>
           </div>
           <img className="pawn2" src="pawn1.png" />
@@ -88,6 +91,7 @@ const Store = () => {
         <div className="current-wallet">Current Wallet:</div>
         <div className="_0-00">$0.00</div>
       </div>
+      <NavBar />
     </div>
   );
 };
