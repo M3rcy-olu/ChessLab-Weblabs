@@ -29,6 +29,7 @@ const App = () => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
         setUserId(user._id);
+        set;
       }
     });
   }, []);
@@ -67,6 +68,7 @@ const App = () => {
         <Route path="Profile" element={<Profile />} />
         <Route path="Store" element={<Store />} />
       </Routes>
+      <NavBar userId={userId} />
     </div>
   );
 };

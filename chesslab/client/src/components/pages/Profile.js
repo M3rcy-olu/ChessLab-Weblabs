@@ -5,7 +5,7 @@ import NavBar from "../modules/NavBar";
 const Profile = () => {
   return (
     <div className="profile-page">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="profile">
         <div className="level">
           <div className="level2">Level:</div>

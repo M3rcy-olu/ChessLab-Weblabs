@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const PointSchema = new mongoose.schema({
-  user: String,
+  google_id: String,
   Points: Number,
 });
 

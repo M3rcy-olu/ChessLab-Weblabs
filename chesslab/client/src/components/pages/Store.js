@@ -91,7 +91,7 @@ const Store = () => {
         <div className="current-wallet">Current Wallet:</div>
         <div className="_0-00">$0.00</div>
       </div>
-      <NavBar />
+      {/* <NavBar /> */}
     </div>
   );
 };
