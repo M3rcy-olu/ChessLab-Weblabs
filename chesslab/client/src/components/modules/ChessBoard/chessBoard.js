@@ -1,25 +1,39 @@
 import React, { useRef, useState } from "react";
 import "./chessBoard.css";
 import Tile from "../Tile/Tile";
+import Referee from "../../../referee/Referee";
 
 const verticalAxis = [1, 2, 3, 4, 5, 6, 7, 8];
 const horizontalAxis = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
-// function Piece(img_path, x, y) {
-//   this.image = img_path;
-//   this.x = x;
-//   this.y = y;
-// }
+const PieceType = {
+  pawn: "PAWN",
+  knight: "KNIGHT",
+  bishop: "BISHOP",
+  rook: "ROOK",
+  queen: "QUEEN",
+  king: "KING",
+};
 
 const initialboardState = [];
 
 //Initalizes the starting positions of the black pieces x--> horizontal, y --> vertical
 for (let i = 0; i < 8; i++) {
-  initialboardState.push({ image: "public/images/Chess_pdt60.png", x: i, y: 6 });
+  initialboardState.push({
+    image: "public/images/Chess_pdt60.png",
+    x: i,
+    y: 6,
+    type: PieceType.pawn,
+  });
 }
 //Initalizes the starting positions of the white pieces
 for (let i = 0; i < 8; i++) {
-  initialboardState.push({ image: "public/images/Chess_plt60.png", x: i, y: 1 });
+  initialboardState.push({
+    image: "public/images/Chess_plt60.png",
+    x: i,
+    y: 1,
+    type: PieceType.pawn,
+  });
 }
 //Heavy Pieces
 
@@ -28,14 +42,14 @@ for (let i = 0; i < 2; i++) {
   const y = i === 0 ? 0 : 7;
 
   initialboardState.push(
-    { image: `public/images/Chess_r${color}t60.png`, x: 0, y: y },
-    { image: `public/images/Chess_n${color}t60.png`, x: 1, y: y },
-    { image: `public/images/Chess_b${color}t60.png`, x: 2, y: y },
-    { image: `public/images/Chess_q${color}t60.png`, x: 3, y: y },
-    { image: `public/images/Chess_k${color}t60.png`, x: 4, y: y },
-    { image: `public/images/Chess_b${color}t60.png`, x: 5, y: y },
-    { image: `public/images/Chess_n${color}t60.png`, x: 6, y: y },
-    { image: `public/images/Chess_r${color}t60.png`, x: 7, y: y }
+    { image: `public/images/Chess_r${color}t60.png`, x: 0, y: y, type: PieceType.rook },
+    { image: `public/images/Chess_n${color}t60.png`, x: 1, y: y, type: PieceType.knight },
+    { image: `public/images/Chess_b${color}t60.png`, x: 2, y: y, type: PieceType.bishop },
+    { image: `public/images/Chess_q${color}t60.png`, x: 3, y: y, type: PieceType.queen },
+    { image: `public/images/Chess_k${color}t60.png`, x: 4, y: y, type: PieceType.king },
+    { image: `public/images/Chess_b${color}t60.png`, x: 5, y: y, type: PieceType.bishop },
+    { image: `public/images/Chess_n${color}t60.png`, x: 6, y: y, type: PieceType.knight },
+    { image: `public/images/Chess_r${color}t60.png`, x: 7, y: y, type: PieceType.rook }
   );
 }
 
@@ -46,6 +60,7 @@ const ChessBoard = () => {
   const [gridY, setgridY] = useState(0);
   const [pieces, setPieces] = useState(initialboardState);
   const chessboardRef = useRef(null);
+  const referee = new Referee();
 
   //Function for picking chess pieces
   const grabPice = (e) => {
@@ -105,17 +120,20 @@ const ChessBoard = () => {
     }
   };
 
+  //Function for dropping a piece on a tile
   const dropPiece = (e) => {
     const chessboard = chessboardRef.current;
 
     if (activePiece && chessboard) {
       const x = Math.round(((e.clientX - chessboard.offsetLeft - 35) * 1.25) / 100);
       const y = Math.abs(Math.round(((e.clientY - chessboard.offsetTop - 600) * 1.25) / 100));
-      console.log(x, y);
 
+      //updates piece position
       setPieces((value) => {
         const pieces = value.map((p) => {
           if (p.x === gridX && p.y === gridY) {
+            referee.isValideMove(gridX, gridY, x, y, p.type);
+
             p.x = x;
             p.y = y;
           }
