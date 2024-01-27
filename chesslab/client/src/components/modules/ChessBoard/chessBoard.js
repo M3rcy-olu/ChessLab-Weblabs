@@ -175,25 +175,37 @@ const ChessBoard = () => {
       const y = Math.abs(Math.round(((e.clientY - chessboard.offsetTop - 600) * 1.25) / 100));
 
       const currentPiece = pieces.find((p) => p.x === gridX && p.y === gridY);
-      //updates piece position
-      setPieces((value) => {
-        const pieces = value.map((p) => {
-          if (p.x === gridX && p.y === gridY) {
-            const validMove = referee.isValideMove(gridX, gridY, x, y, p.type, p.team, value);
+      const attackedPiece = pieces.find((p) => p.x === x && p.y === y);
 
-            if (validMove) {
-              p.x = x;
-              p.y = y;
-            } else {
-              activePiece.style.position = "relative";
-              activePiece.style.removeProperty("top");
-              activePiece.style.removeProperty("left");
+      if (currentPiece) {
+        const validMove = referee.isValidMove(
+          gridX,
+          gridY,
+          x,
+          y,
+          currentPiece.type,
+          currentPiece.team,
+          pieces
+        );
+        if (validMove) {
+          const updatedPieces = pieces.reduce((results, piece) => {
+            if (piece.x === currentPiece.x && piece.y === currentPiece.y) {
+              piece.x = x;
+              piece.y = y;
+              results.push(piece);
+            } else if (!(piece.x === x && piece.y === y)) {
+              results.push(piece);
             }
-          }
-          return p;
-        });
-        return pieces;
-      });
+
+            return results;
+          }, []);
+          setPieces(updatedPieces);
+        } else {
+          activePiece.style.position = "relative";
+          activePiece.style.removeProperty("top");
+          activePiece.style.removeProperty("left");
+        }
+      }
       setActivePiece(null);
     }
   };

@@ -1,7 +1,7 @@
 import { PieceType, TeamType } from "../components/modules/ChessBoard/chessBoard";
 class Referee {
   tileIsOccupied(x, y, boardState) {
-    console.log("checking if tile is occupied");
+    // console.log("checking if tile is occupied");
 
     const piece = boardState.find((p) => p.x === x && p.y === y);
     if (piece) {
@@ -14,25 +14,25 @@ class Referee {
   tileIsOccupiedByOpp(x, y, boardState, team) {
     const piece = boardState.find((p) => p.x === x && p.y === y && p.team !== team);
 
-    if(piece){
-        return true;
+    if (piece) {
+      return true;
     } else {
-        return false;
+      return false;
     }
   }
 
-  isValideMove(px, py, x, y, type, team, boardState) {
-    console.log("Referee is checking for valid move...");
-    console.log(`previous location ${px}, ${py}`);
-    console.log(`current location: ${x}, ${y}`);
-    console.log(type);
-    console.log(team);
+  isValidMove(px, py, x, y, type, team, boardState) {
+    // console.log("Referee is checking for valid move...");
+    // console.log(`previous location ${px}, ${py}`);
+    // console.log(`current location: ${x}, ${y}`);
+    // console.log(type);
+    // console.log(team);
 
     if (type === PieceType.pawn) {
       const specialRow = team === TeamType.our ? 1 : 6;
       const pawnDirection = team === TeamType.our ? 1 : -1;
-    
-        //Movement Logic
+
+      //Movement Logic
       if (px === x && py === specialRow && y - py === 2 * pawnDirection) {
         if (
           !this.tileIsOccupied(x, y, boardState) &&
@@ -47,12 +47,14 @@ class Referee {
       }
       //Attack logic
       else if (x - px === -1 && y - py === pawnDirection) {
-        if(this.tileIsOccupiedByOpp(x, y, boardState, team)){
-            return true;
+        if (this.tileIsOccupiedByOpp(x, y, boardState, team)) {
+          console.log("can strike the enemy");
+          return true;
         }
-      } else if (x - px === 1 && y - py === pawnDirection){
-        if(this.tileIsOccupiedByOpp(x, y, boardState, team)){
-           return true; 
+      } else if (x - px === 1 && y - py === pawnDirection) {
+        if (this.tileIsOccupiedByOpp(x, y, boardState, team)) {
+          console.log("can strike the enemy");
+          return true;
         }
       }
     }
