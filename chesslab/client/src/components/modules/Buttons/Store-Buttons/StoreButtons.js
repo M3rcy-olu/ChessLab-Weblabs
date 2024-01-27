@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Store from "../../../pages/Store";
 import Button1 from "../../Buttons/Button";
-import level from "../../Buttons/Button";
 import "./StoreButtons.css";
 
 const StoreButtons = (props) => {
@@ -14,7 +13,8 @@ const StoreButtons = (props) => {
           containerClass="Store-Button-Container"
           textClass="Store-Button-Text"
           rectangleClass="Store-Button-Rectangle"
-          text=""
+          func={props.func2}
+          text={props.text2}
         />
       </div>
     </div>

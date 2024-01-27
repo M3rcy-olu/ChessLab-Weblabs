@@ -45,6 +45,10 @@
   border-radius: 82px;
 }
 
+.Small-Rectangle:hover {
+  background: #1c1616;
+}
+
 .NavBar-Title {
   position: absolute;
   width: 100%;
@@ -68,7 +72,7 @@
 
 .Small-Button {
   position: absolute;
-  width: 100%;
+  width: 0%;
   left: 6.97%;
   right: 6.97%;
   top: 24.35%;
@@ -89,6 +93,7 @@
 
 .Large-Button {
   position: absolute;
+  width: 0%;
   left: 6.97%;
   right: 6.97%;
   top: 24.35%;
@@ -117,6 +122,10 @@
   background: #2b2121;
   box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
   border-radius: 82px;
+}
+
+.Large-Rectangle:hover {
+  background: #1c1616;
 }
 
 .NavBar-Link-Profile {
