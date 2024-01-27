@@ -40,3 +40,8 @@ input[type="button"] {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.login {
+  background-color: black;
+  font-family: "DM Sans";
+}

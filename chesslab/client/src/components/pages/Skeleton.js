@@ -14,8 +14,7 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
       className="skel"
       style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}
     >
-      <NavBar />
-      <Login />
+      <Login className="login" />
 
       <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
         {userId ? (

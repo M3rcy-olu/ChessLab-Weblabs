@@ -12,6 +12,7 @@
   width: 100vw;
 
   background-color: var(--background);
+  font-family: "DM Sans";
 }
 
 .mainContainer {
