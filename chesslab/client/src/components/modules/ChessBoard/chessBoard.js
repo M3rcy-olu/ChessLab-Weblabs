@@ -6,7 +6,12 @@ import Referee from "../../../referee/Referee";
 const verticalAxis = [1, 2, 3, 4, 5, 6, 7, 8];
 const horizontalAxis = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
-const PieceType = {
+export const TeamType = {
+  opponent: "OPPONENT",
+  our: "OUR",
+};
+
+export const PieceType = {
   pawn: "PAWN",
   knight: "KNIGHT",
   bishop: "BISHOP",
@@ -17,40 +22,83 @@ const PieceType = {
 
 const initialboardState = [];
 
-//Initalizes the starting positions of the black pieces x--> horizontal, y --> vertical
-for (let i = 0; i < 8; i++) {
-  initialboardState.push({
-    image: "public/images/Chess_pdt60.png",
-    x: i,
-    y: 6,
-    type: PieceType.pawn,
-  });
-}
-//Initalizes the starting positions of the white pieces
-for (let i = 0; i < 8; i++) {
-  initialboardState.push({
-    image: "public/images/Chess_plt60.png",
-    x: i,
-    y: 1,
-    type: PieceType.pawn,
-  });
-}
 //Heavy Pieces
 
 for (let i = 0; i < 2; i++) {
-  const color = i === 0 ? "l" : "d";
-  const y = i === 0 ? 0 : 7;
+  const teamType = i === 0 ? TeamType.our : TeamType.opponent;
+  const color = teamType === TeamType.our ? "l" : "d";
+  const y = teamType === TeamType.our ? 0 : 7;
+  const p_y = teamType === TeamType.our ? 1 : 6;
 
   initialboardState.push(
-    { image: `public/images/Chess_r${color}t60.png`, x: 0, y: y, type: PieceType.rook },
-    { image: `public/images/Chess_n${color}t60.png`, x: 1, y: y, type: PieceType.knight },
-    { image: `public/images/Chess_b${color}t60.png`, x: 2, y: y, type: PieceType.bishop },
-    { image: `public/images/Chess_q${color}t60.png`, x: 3, y: y, type: PieceType.queen },
-    { image: `public/images/Chess_k${color}t60.png`, x: 4, y: y, type: PieceType.king },
-    { image: `public/images/Chess_b${color}t60.png`, x: 5, y: y, type: PieceType.bishop },
-    { image: `public/images/Chess_n${color}t60.png`, x: 6, y: y, type: PieceType.knight },
-    { image: `public/images/Chess_r${color}t60.png`, x: 7, y: y, type: PieceType.rook }
+    {
+      image: `public/images/Chess_r${color}t60.png`,
+      x: 0,
+      y: y,
+      type: PieceType.rook,
+      team: teamType,
+    },
+    {
+      image: `public/images/Chess_n${color}t60.png`,
+      x: 1,
+      y: y,
+      type: PieceType.knight,
+      team: teamType,
+    },
+    {
+      image: `public/images/Chess_b${color}t60.png`,
+      x: 2,
+      y: y,
+      type: PieceType.bishop,
+      team: teamType,
+    },
+    {
+      image: `public/images/Chess_q${color}t60.png`,
+      x: 3,
+      y: y,
+      type: PieceType.queen,
+      team: teamType,
+    },
+    {
+      image: `public/images/Chess_k${color}t60.png`,
+      x: 4,
+      y: y,
+      type: PieceType.king,
+      team: teamType,
+    },
+    {
+      image: `public/images/Chess_b${color}t60.png`,
+      x: 5,
+      y: y,
+      type: PieceType.bishop,
+      team: teamType,
+    },
+    {
+      image: `public/images/Chess_n${color}t60.png`,
+      x: 6,
+      y: y,
+      type: PieceType.knight,
+      team: teamType,
+    },
+    {
+      image: `public/images/Chess_r${color}t60.png`,
+      x: 7,
+      y: y,
+      type: PieceType.rook,
+      team: teamType,
+    }
   );
+
+  //Initalizes the starting positions of the black pieces x--> horizontal, y --> vertical
+  for (let i = 0; i < 8; i++) {
+    initialboardState.push({
+      image: `public/images/Chess_p${color}t60.png`,
+      x: i,
+      y: p_y,
+      type: PieceType.pawn,
+      team: teamType,
+    });
+  }
 }
 
 //Function handling the generation of the chessboard and placement of pieces
@@ -93,8 +141,6 @@ const ChessBoard = () => {
       const x = e.clientX - 35;
       const y = e.clientY - 35;
       activePiece.style.position = "absolute";
-      // activePiece.style.left = `${x}px`;
-      // activePiece.style.top = `${y}px`;
 
       //if x position of piece is smaller than the left side
       if (x < minX) {
@@ -128,14 +174,21 @@ const ChessBoard = () => {
       const x = Math.round(((e.clientX - chessboard.offsetLeft - 35) * 1.25) / 100);
       const y = Math.abs(Math.round(((e.clientY - chessboard.offsetTop - 600) * 1.25) / 100));
 
+      const currentPiece = pieces.find((p) => p.x === gridX && p.y === gridY);
       //updates piece position
       setPieces((value) => {
         const pieces = value.map((p) => {
           if (p.x === gridX && p.y === gridY) {
-            referee.isValideMove(gridX, gridY, x, y, p.type);
+            const validMove = referee.isValideMove(gridX, gridY, x, y, p.type, p.team, value);
 
-            p.x = x;
-            p.y = y;
+            if (validMove) {
+              p.x = x;
+              p.y = y;
+            } else {
+              activePiece.style.position = "relative";
+              activePiece.style.removeProperty("top");
+              activePiece.style.removeProperty("left");
+            }
           }
           return p;
         });
