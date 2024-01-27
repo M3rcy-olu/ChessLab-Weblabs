@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
   name: String,
-  google_id: String,
+  googleid: String,
   points: Number,
   level: Number,
   plays: Number,
@@ -13,3 +13,8 @@ const UserSchema = new mongoose.Schema({
 
 // compile model from schema
 module.exports = mongoose.model("user", UserSchema);
+
+UserSchema.methods.updatePoints = function (points) {
+  this.points += points;
+  return this.save();
+};

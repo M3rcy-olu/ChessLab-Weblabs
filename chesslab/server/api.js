@@ -39,10 +39,18 @@ router.post("/initsocket", (req, res) => {
   res.send({});
 });
 
-router.get("Points", (req, res) => {
-  Points.find({ user: req.user.name }).then((points) => {
-    res.send(points);
-  });
+router.post("/updatePoints", (req, res) => {
+  if (!req.user) {
+    return res.status(401).send({ error: "Not logged in" });
+  }
+  User.updatePoints(req.user._id, req.body.points)
+    .then((updatedUser) => {
+      res.send(updatedUser);
+    })
+    .catch((error) => {
+      console.error("Error updating points:", error);
+      res.status(500).send({ error: "Error updating points" });
+    });
 });
 
 // |------------------------------|

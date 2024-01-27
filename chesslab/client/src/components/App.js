@@ -23,7 +23,7 @@ import { get, post } from "../utilities";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
-  const [useData, setUserData] = useState(undefined);
+  const [userData, setUserData] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -41,12 +41,14 @@ const App = () => {
     console.log(`Logged in as ${decodedCredential.name}`);
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
+      setUserData(user);
       post("/api/initsocket", { socketid: socket.id });
     });
   };
 
   const handleLogout = () => {
     setUserId(undefined);
+    setUserData({});
     post("/api/logout");
   };
 
@@ -69,7 +71,7 @@ const App = () => {
         <Route path="Profile" element={<Profile level={12} />} />
         <Route path="Store" element={<Store />} />
       </Routes>
-      <NavBar points={100} />
+      <NavBar points={(userData && userData.points) || 0} />
     </div>
   );
 };
