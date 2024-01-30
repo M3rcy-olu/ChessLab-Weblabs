@@ -187,6 +187,17 @@ const ChessBoard = () => {
           currentPiece.team,
           pieces
         );
+
+        const isEnPessantMove = referee.isEnPassantMove(
+          gridX,
+          gridY,
+          x,
+          y,
+          currentPiece.type,
+          currentPiece.team,
+          pieces
+        );
+
         if (validMove) {
           const updatedPieces = pieces.reduce((results, piece) => {
             if (piece.x === gridX && piece.y === gridY) {

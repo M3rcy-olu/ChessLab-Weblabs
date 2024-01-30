@@ -21,6 +21,26 @@ class Referee {
     }
   }
 
+  isEnPassantMove(px, py, x, y, type, team, boardState) {
+    const pawnDirection = team === TeamType.our ? 1 : -1;
+
+    //check if attacking piece is a pawn
+    if (type === PieceType.pawn) {
+      if (x - px === 1 || (x - px === -1 && y - py === pawnDirection)) {
+        const piece = boardState.find((p) => p.x === x && p.y === y - pawnDirection);
+        console.log(piece);
+      }
+    }
+
+    //check that the en passant move is in the diagonal direction of the attacking peice
+
+    //check if en passant move would happen above or below the attacking piece
+
+    //chech if the attacked piece has made an en passant move in the previous turn
+
+    return false;
+  }
+
   isValidMove(px, py, x, y, type, team, boardState) {
     // console.log("Referee is checking for valid move...");
     // console.log(`previous location ${px}, ${py}`);
@@ -46,7 +66,7 @@ class Referee {
         }
       }
       //Attack logic
-      else if ((x - px === 1) || (x- px === -1) && y - py === pawnDirection) {
+      else if (x - px === 1 || (x - px === -1 && y - py === pawnDirection)) {
         if (this.tileIsOccupiedByOpp(x, y, boardState, team)) {
           console.log("can strike the enemy");
           return true;
