@@ -18,7 +18,7 @@
 }
 
 .NavBar-linkContainer {
-  position: absolute;
+  position: inherit;
   left: -0.5%;
   right: 0%;
   top: 0%;

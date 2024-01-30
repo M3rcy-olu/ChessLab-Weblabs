@@ -46,12 +46,7 @@ class Referee {
         }
       }
       //Attack logic
-      else if (x - px === -1 && y - py === pawnDirection) {
-        if (this.tileIsOccupiedByOpp(x, y, boardState, team)) {
-          console.log("can strike the enemy");
-          return true;
-        }
-      } else if (x - px === 1 && y - py === pawnDirection) {
+      else if ((x - px === 1) || (x- px === -1) && y - py === pawnDirection) {
         if (this.tileIsOccupiedByOpp(x, y, boardState, team)) {
           console.log("can strike the enemy");
           return true;
