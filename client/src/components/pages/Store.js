@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "../modules/NavBar";
-import StoreButtons from "../modules/Buttons/Store-Buttons/StoreButtons";
+import StoreButton from "../modules/Buttons/Store-Buttons/StoreButton";
 import "./Store.css";
 
 const Store = () => {
@@ -12,7 +12,7 @@ const Store = () => {
   return (
     <div className="store">
       <NavBar />
-      <StoreButtons
+      <StoreButton
         image={require("../../public/images/Chess_plt60.png").default}
         func2={hello}
         text2={"level " + level}

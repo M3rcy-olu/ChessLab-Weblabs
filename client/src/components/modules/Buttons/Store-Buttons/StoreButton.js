@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Store from "../../../pages/Store";
-import Button1 from "../../Buttons/Button";
-import "./StoreButtons.css";
+import ButtonUI from "../../Buttons/ButtonUI";
+import "./StoreButton.css";
 
-const StoreButtons = (props) => {
+const StoreButton = (props) => {
   return (
     <div className="Store_Buttons-main">
       <div className="Store_Buttons-Placeholder">
         <img src={props.image} className="Store_Button-Image" />
-        <Button1
+        <ButtonUI
           containerClass="Store-Button-Container"
           textClass="Store-Button-Text"
           rectangleClass="Store-Button-Rectangle"
@@ -21,4 +21,4 @@ const StoreButtons = (props) => {
   );
 };
 
-export default StoreButtons;
+export default StoreButton;
