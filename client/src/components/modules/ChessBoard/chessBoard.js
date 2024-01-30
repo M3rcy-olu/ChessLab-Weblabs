@@ -189,7 +189,7 @@ const ChessBoard = () => {
         );
         if (validMove) {
           if (currentPiece.team === TeamType.our) {
-            const updatedPieces = pieces.reduceRight((results, piece) => {
+            const updatedPieces = pieces.reduce((results, piece) => {
               if (piece.x === currentPiece.x && piece.y === currentPiece.y) {
                 piece.x = x;
                 piece.y = y;
@@ -202,7 +202,7 @@ const ChessBoard = () => {
             }, []);
             setPieces(updatedPieces);
           } else {
-            const updatedPieces = pieces.reduce((results, piece) => {
+            const updatedPieces = pieces.reduceRight((results, piece) => {
               if (piece.x === currentPiece.x && piece.y === currentPiece.y) {
                 piece.x = x;
                 piece.y = y;
