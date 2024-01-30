@@ -5,8 +5,3 @@
   width: 600px;
   height: 600px;
 }
-
-.row,
-.axis-row {
-  display: flex;
-}

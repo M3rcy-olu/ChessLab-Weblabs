@@ -188,33 +188,18 @@ const ChessBoard = () => {
           pieces
         );
         if (validMove) {
-          if (currentPiece.team === TeamType.our) {
-            const updatedPieces = pieces.reduce((results, piece) => {
-              if (piece.x === currentPiece.x && piece.y === currentPiece.y) {
-                piece.x = x;
-                piece.y = y;
-                results.push(piece);
-              } else if (!(piece.x === x && piece.y === y)) {
-                results.push(piece);
-              }
+          const updatedPieces = pieces.reduce((results, piece) => {
+            if (piece.x === gridX && piece.y === gridY) {
+              piece.x = x;
+              piece.y = y;
+              results.push(piece);
+            } else if (!(piece.x === x && piece.y === y)) {
+              results.push(piece);
+            }
 
-              return results;
-            }, []);
-            setPieces(updatedPieces);
-          } else {
-            const updatedPieces = pieces.reduceRight((results, piece) => {
-              if (piece.x === currentPiece.x && piece.y === currentPiece.y) {
-                piece.x = x;
-                piece.y = y;
-                results.push(piece);
-              } else if (!(piece.x === x && piece.y === y)) {
-                results.push(piece);
-              }
-
-              return results;
-            }, []);
-            setPieces(updatedPieces);
-          }
+            return results;
+          }, []);
+          setPieces(updatedPieces);
         } else {
           activePiece.style.position = "relative";
           activePiece.style.removeProperty("top");
