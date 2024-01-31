@@ -1,8 +1,3 @@
-.Store_Buttons-main {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
 .Store_Buttons-Placeholder {
   position: relative;
   width: 100%;
@@ -11,9 +6,10 @@
 
 .Store_Button-Image {
   position: relative;
-  top: 175px;
-  left: 65px;
+  top: 42%;
+  left: 40%;
   z-index: 100;
+  transform: scale(2);
 }
 
 .Store-Button-Container {
@@ -31,65 +27,36 @@
   background: #2b2121;
   box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
   border-radius: 82px;
-  border-width: 5px;
+}
+
+.Store-Button-Rectangle-NoHover {
+  position: relative;
+  width: 200px;
+  height: 220px;
+
+  background: #2b2121;
+  box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 82px;
 }
 
 .Store-Button-Rectangle:hover {
-  position: relative;
-  width: 200px;
-  height: 220px;
-
   background: #1c1616;
-  box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 82px;
-}
-
-.Store-Button-Rectangle {
-  position: relative;
-  width: 200px;
-  height: 220px;
-
-  background: #1c1616;
-  box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 82px;
-}
-
-.Store_Buttons-Upgrade {
-  position: relative;
-  left: 22.5%;
-  right: 6.97%;
-  top: 65%;
-  bottom: 25.22%;
-
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 42px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  z-index: 100;
-
-  color: #ff5858;
 }
 
 .Store-Button-Text {
   position: relative;
-  width: 100%;
-  top: 200px;
-  left: 24%;
-  right: 100%;
+  left: 6.97%;
+  right: 6.97%;
+  top: 24.35%;
+  bottom: 25.22%;
 
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
   line-height: 42px;
-  display: flex;
   align-items: center;
   text-align: center;
-  z-index: 100;
 
   color: #ff5858;
 }

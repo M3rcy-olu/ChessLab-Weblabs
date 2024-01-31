@@ -11,7 +11,6 @@ const Store = () => {
   };
   return (
     <div className="store">
-      <NavBar />
       <StoreButton
         image={require("../../public/images/Chess_plt60.png").default}
         func2={hello}
