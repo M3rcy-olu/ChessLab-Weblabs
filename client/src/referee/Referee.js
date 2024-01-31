@@ -26,18 +26,15 @@ class Referee {
 
     //check if attacking piece is a pawn
     if (type === PieceType.pawn) {
-      if (x - px === 1 || (x - px === -1 && y - py === pawnDirection)) {
-        const piece = boardState.find((p) => p.x === x && p.y === y - pawnDirection);
-        console.log(piece);
+      if ((x - px === -1 || x - px === 1) && y - py === pawnDirection) {
+        const piece = boardState.find(
+          (p) => p.x === x && (p.y === y - pawnDirection) & p.enPassant
+        );
+        if (piece) {
+          return true;
+        }
       }
     }
-
-    //check that the en passant move is in the diagonal direction of the attacking peice
-
-    //check if en passant move would happen above or below the attacking piece
-
-    //chech if the attacked piece has made an en passant move in the previous turn
-
     return false;
   }
 
@@ -68,7 +65,6 @@ class Referee {
       //Attack logic
       else if (x - px === 1 || (x - px === -1 && y - py === pawnDirection)) {
         if (this.tileIsOccupiedByOpp(x, y, boardState, team)) {
-          console.log("can strike the enemy");
           return true;
         }
       }

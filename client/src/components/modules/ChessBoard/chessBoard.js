@@ -97,6 +97,7 @@ for (let i = 0; i < 2; i++) {
       y: p_y,
       type: PieceType.pawn,
       team: teamType,
+      enPassant: false,
     });
   }
 }
@@ -198,13 +199,39 @@ const ChessBoard = () => {
           pieces
         );
 
-        if (validMove) {
+        const pawnDirection = currentPiece.team === TeamType.our ? 1 : -1;
+        if (isEnPessantMove) {
           const updatedPieces = pieces.reduce((results, piece) => {
             if (piece.x === gridX && piece.y === gridY) {
+              piece.enPassant = false;
+              piece.x = x;
+              piece.y = y;
+              results.push(piece);
+            } else if (!(piece.x === x && piece.y === y - pawnDirection)) {
+              if (piece.type === PieceType.pawn) {
+                piece.enPassant = false;
+              }
+              results.push(piece);
+            }
+
+            return results;
+          }, []);
+          setPieces(updatedPieces);
+        } else if (validMove) {
+          const updatedPieces = pieces.reduce((results, piece) => {
+            if (piece.x === gridX && piece.y === gridY) {
+              if (Math.abs(gridY - y) === 2 && piece.type === PieceType.pawn) {
+                piece.enPassant = true;
+              } else {
+                piece.enPassant = false;
+              }
               piece.x = x;
               piece.y = y;
               results.push(piece);
             } else if (!(piece.x === x && piece.y === y)) {
+              if (piece.type === PieceType.pawn) {
+                piece.enPassant = false;
+              }
               results.push(piece);
             }
 
