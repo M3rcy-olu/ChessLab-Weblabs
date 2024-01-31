@@ -19,34 +19,10 @@
 
 .NavBar-linkContainer {
   position: inherit;
-  left: -0.5%;
+  left: -1%;
   right: 0%;
   top: 0%;
   bottom: 0%;
-}
-
-.NavBar-Link-Home {
-  position: absolute;
-  left: 1.33%;
-  right: 88.66%;
-  top: 46.2%;
-  bottom: 12.5%;
-}
-
-.Small-Rectangle {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  background: #2b2121;
-  box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 82px;
-}
-
-.Small-Rectangle:hover {
-  background: #1c1616;
 }
 
 .NavBar-Title {
@@ -70,67 +46,17 @@
   color: #ffffff;
 }
 
-.Small-Button {
+.NavBar-Link-Home {
   position: absolute;
-  width: 0%;
-  left: 6.97%;
-  right: 6.97%;
-  top: 24.35%;
-  bottom: 25.22%;
-  z-index: 100;
-
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 200%;
-  line-height: 220%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: var(--red);
-}
-
-.Large-Button {
-  position: absolute;
-  width: 0%;
-  left: 6.97%;
-  right: 6.97%;
-  top: 24.35%;
-  bottom: 25.22%;
-  z-index: 100;
-
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 200%;
-  line-height: 220%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: var(--red);
-}
-
-.Large-Rectangle {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  background: #2b2121;
-  box-shadow: 0px 4px 4.9px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 82px;
-}
-
-.Large-Rectangle:hover {
-  background: #1c1616;
+  left: 1.33%;
+  right: 88.66%;
+  top: 46.2%;
+  bottom: 12.5%;
 }
 
 .NavBar-Link-Profile {
   position: absolute;
-  left: 13.37%;
+  left: 10.33%;
   right: 76.62%;
   top: 46.2%;
   bottom: 12.5%;
@@ -138,7 +64,7 @@
 
 .NavBar-Link-Battle {
   position: absolute;
-  left: 25.41%;
+  left: 20.33%;
   right: 62.15%;
   top: 46.2%;
   bottom: 12.5%;
@@ -146,7 +72,7 @@
 
 .NavBar-Link-Store {
   position: absolute;
-  left: 39.87%;
+  left: 30.33%;
   right: 47.69%;
   top: 46.2%;
   bottom: 12.5%;
@@ -154,28 +80,8 @@
 
 .NavBar-Link-Money {
   position: absolute;
-  left: 85.13%;
-  right: 2.43%;
+  left: 82.13%;
+  right: -3.43%;
   top: 46.2%;
   bottom: 12.5%;
-}
-
-.Large-Button-Money {
-  position: absolute;
-  left: 6.97%;
-  right: 6.97%;
-  top: 24.35%;
-  bottom: 25.22%;
-  z-index: 100;
-
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 200%;
-  line-height: 220%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: var(--green);
 }

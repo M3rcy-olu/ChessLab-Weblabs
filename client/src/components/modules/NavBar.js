@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import "./Buttons/ButtonUI";
+import ButtonUI from "./Buttons/ButtonUI";
 
 const NavBar = (props) => {
   const points = props.points;
@@ -10,27 +12,22 @@ const NavBar = (props) => {
 
       <div className="NavBar-linkContainer">
         <Link to="/" className="NavBar-Link-Home">
-          <div className="Small-Button">Home</div>
-          <div className="Small-Rectangle"></div>
+          <ButtonUI text="Home" width={80} />
         </Link>
 
         <Link to="/Profile" className="NavBar-Link-Profile">
-          <div className="Small-Button">Profile</div>
-          <div className="Small-Rectangle"></div>
+          <ButtonUI text="Profile" width={65} />
         </Link>
 
         <Link to="/Battle" className="NavBar-Link-Battle">
-          <div className="Large-Button">Battle</div>
-          <div className="Large-Rectangle"></div>
+          <ButtonUI text="Battle" width={50} />
         </Link>
 
         <Link to="/Store" className="NavBar-Link-Store">
-          <div className="Large-Button">Store</div>
-          <div className="Large-Rectangle"></div>
+          <ButtonUI text="Store" width={40} />
         </Link>
         <Link to="/Store" className="NavBar-Link-Money">
-          <div className="Large-Button-Money">{points}</div>
-          <div className="Large-Rectangle"></div>
+          <ButtonUI text={"$" + points} width={70} textAlign="right" textColor="#00ff38" />
         </Link>
       </div>
       <div className="NavBar-Gradient"></div>

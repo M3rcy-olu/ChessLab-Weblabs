@@ -7,10 +7,13 @@ const Profile = (props) => {
   return (
     <div className="profile">
       <ButtonUI
-        containerClass="Default-Button-Container"
-        textClass="Default-Button-Text"
-        rectangleClass="Default-Button-Rectangle"
+        ButtonClass="default"
         text="Hello!"
+        pos="relative"
+        func={null}
+        left={0}
+        right={0}
+        width={100}
       />
     </div>
   );

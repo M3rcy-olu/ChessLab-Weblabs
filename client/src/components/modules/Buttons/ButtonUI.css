@@ -2,8 +2,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  left: 25px;
-  bottom: 120px;
 }
 
 .Default-Button-Rectangle {
@@ -17,7 +15,7 @@
 }
 
 .Default-Button-Text {
-  position: absolute;
+  position: relative;
   left: 6.97%;
   right: 6.97%;
   top: 24.35%;
@@ -28,7 +26,6 @@
   font-weight: 400;
   font-size: 32px;
   line-height: 42px;
-  display: flex;
   align-items: center;
   text-align: center;
 
