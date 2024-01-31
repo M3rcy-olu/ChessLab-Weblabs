@@ -1,9 +1,9 @@
-import { TeamType, PieceType } from "../components/modules/ChessBoard/constants";
+import { TeamType, PieceType, samePosition } from "../components/modules/ChessBoard/constants";
 class Referee {
-  tileIsOccupied(x, y, boardState) {
+  tileIsOccupied(desiredPosition, boardState) {
     // console.log("checking if tile is occupied");
 
-    const piece = boardState.find((p) => p.position.x === x && p.position.y === y);
+    const piece = boardState.find((p) => samePosition(p.position, desiredPosition));
     if (piece) {
       return true;
     } else {
@@ -11,9 +11,9 @@ class Referee {
     }
   }
 
-  tileIsOccupiedByOpp(x, y, boardState, team) {
+  tileIsOccupiedByOpp(desiredPosition, boardState, team) {
     const piece = boardState.find(
-      (p) => p.position.x === x && p.position.y === y && p.team !== team
+      (p) => samePosition(p.position, desiredPosition) && p.team !== team
     );
 
     if (piece) {
@@ -59,8 +59,11 @@ class Referee {
         desiredPosition.y - initialPosition.y === 2 * pawnDirection
       ) {
         if (
-          !this.tileIsOccupied(desiredPosition.x, desiredPosition.y, boardState) &&
-          !this.tileIsOccupied(desiredPosition.x, desiredPosition.y - pawnDirection, boardState)
+          !this.tileIsOccupied(desiredPosition, boardState) &&
+          !this.tileIsOccupied(
+            { x: desiredPosition.x, y: desiredPosition.y - pawnDirection },
+            boardState
+          )
         ) {
           return true;
         }
@@ -68,7 +71,7 @@ class Referee {
         initialPosition.x === desiredPosition.x &&
         desiredPosition.y - initialPosition.y === pawnDirection
       ) {
-        if (!this.tileIsOccupied(desiredPosition.x, desiredPosition.y, boardState)) {
+        if (!this.tileIsOccupied(desiredPosition, boardState)) {
           return true;
         }
       }
@@ -78,12 +81,35 @@ class Referee {
         (desiredPosition.x - initialPosition.x === -1 &&
           desiredPosition.y - initialPosition.y === pawnDirection)
       ) {
-        if (this.tileIsOccupiedByOpp(desiredPosition.x, desiredPosition.y, boardState, team)) {
+        if (this.tileIsOccupiedByOpp(desiredPosition, boardState, team)) {
           return true;
         }
       }
     } else if (type === PieceType.knight) {
-      console.log("knight");
+      for (let i = -1; i < 2; i += 2) {
+        for (let j = -1; j < 2; j += 2) {
+          if (desiredPosition.y - initialPosition.y === 2 * i) {
+            if (desiredPosition.x - initialPosition.x === j) {
+              if (
+                !this.tileIsOccupied(desiredPosition, boardState) ||
+                this.tileIsOccupiedByOpp(desiredPosition, boardState, team)
+              ) {
+                return true;
+              }
+            }
+          }
+          if (desiredPosition.x - initialPosition.x === 2 * i) {
+            if (desiredPosition.y - initialPosition.y === j) {
+            }
+            if (
+              !this.tileIsOccupied(desiredPosition, boardState) ||
+              this.tileIsOccupiedByOpp(desiredPosition, boardState, team)
+            ) {
+              return true;
+            }
+          }
+        }
+      }
     }
     return false;
   }
