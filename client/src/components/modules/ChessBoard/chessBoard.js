@@ -1,3 +1,4 @@
+//Chess logic from: https://www.youtube.com/@FrontendCoding
 import React, { useRef, useState } from "react";
 import "./chessBoard.css";
 import Tile from "../Tile/Tile";
