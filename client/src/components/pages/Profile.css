@@ -63,3 +63,10 @@
   left: 400px;
   top: 450px;
 }
+
+.PieceLevels {
+  display: flex;
+  width: 250px;
+  text-align: center;
+  top: 50px;
+}

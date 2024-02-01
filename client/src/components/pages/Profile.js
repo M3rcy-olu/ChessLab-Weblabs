@@ -47,6 +47,50 @@ const Profile = (props) => {
               keyColor="#ffffff"
               valueColor=" #898989"
             />
+            <PlayerStats
+              playerKey={"Levels:"}
+              keyColor="#ffffff"
+              valueColor=" #898989"
+              statPos="absolute"
+              statTop={295}
+            />
+            <div className="PieceLevels">
+              <PlayerStats
+                playerKey={"Pawn:"}
+                font={15}
+                playerValue={props.pawnLevel}
+                keyColor="#898989"
+                valueColor=" #898989"
+              />
+              <PlayerStats
+                playerKey={"Bishop:"}
+                font={15}
+                playerValue={props.bishopLevel}
+                keyColor="#898989"
+                valueColor=" #898989"
+              />
+              <PlayerStats
+                playerKey={"Knight:"}
+                font={15}
+                playerValue={props.knightLevel}
+                keyColor="#898989"
+                valueColor=" #898989"
+              />
+              <PlayerStats
+                playerKey={"Rook:"}
+                font={15}
+                playerValue={props.rookLevel}
+                keyColor="#898989"
+                valueColor=" #898989"
+              />
+              <PlayerStats
+                playerKey={"Queen:"}
+                font={15}
+                playerValue={props.queenLevel}
+                keyColor="#898989"
+                valueColor=" #898989"
+              />
+            </div>
           </div>
         </div>
         <div className="profile-userinfo">
