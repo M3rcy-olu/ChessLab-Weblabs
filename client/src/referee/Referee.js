@@ -23,6 +23,13 @@ class Referee {
     }
   }
 
+  tileEmptyIsOccupiedByOpp(desiredPosition, boardState, team) {
+    return (
+      !this.tileIsOccupied(desiredPosition, boardState) ||
+      this.tileIsOccupiedByOpp(desiredPosition, boardState, team)
+    );
+  }
+
   isEnPassantMove(initialPosition, desiredPosition, type, team, boardState) {
     const pawnDirection = team === TeamType.our ? 1 : -1;
 
@@ -48,6 +55,7 @@ class Referee {
   }
 
   isValidMove(initialPosition, desiredPosition, type, team, boardState) {
+    //Movement Logic for Pawn
     if (type === PieceType.pawn) {
       const specialRow = team === TeamType.our ? 1 : 6;
       const pawnDirection = team === TeamType.our ? 1 : -1;
@@ -85,6 +93,8 @@ class Referee {
           return true;
         }
       }
+
+      //Movement Logic for Knight
     } else if (type === PieceType.knight) {
       for (let i = -1; i < 2; i += 2) {
         for (let j = -1; j < 2; j += 2) {
@@ -106,6 +116,70 @@ class Referee {
               this.tileIsOccupiedByOpp(desiredPosition, boardState, team)
             ) {
               return true;
+            }
+          }
+        }
+      }
+      //Movement Logic for Bishop
+    } else if (type === PieceType.bishop) {
+      // up/down right movement
+      for (let i = 1; i < 8; i++) {
+        //up right movement
+        if (desiredPosition.x > initialPosition.x && desiredPosition.y > initialPosition.y) {
+          let passedPosition = { x: initialPosition.x + i, y: initialPosition.y + i };
+          //check if tile is desitnation tile
+          if (passedPosition.x === desiredPosition.x && passedPosition.y === desiredPosition.y) {
+            if (this.tileEmptyIsOccupiedByOpp(passedPosition, boardState, team)) {
+              return true;
+            }
+          } else {
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              console.log("illegal move");
+              break;
+            }
+          }
+        }
+
+        //bottom right movement
+        if (desiredPosition.x > initialPosition.x && desiredPosition.y < initialPosition.y) {
+          let passedPosition = { x: initialPosition.x + i, y: initialPosition.y - i };
+          if (passedPosition.x === desiredPosition.x && passedPosition.y === desiredPosition.y) {
+            if (this.tileEmptyIsOccupiedByOpp(passedPosition, boardState, team)) {
+              return true;
+            }
+          } else {
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              console.log("illegal move");
+              break;
+            }
+          }
+        }
+
+        //up left movement
+        if (desiredPosition.x < initialPosition.x && desiredPosition.y > initialPosition.y) {
+          let passedPosition = { x: initialPosition.x - i, y: initialPosition.y + i };
+          if (passedPosition.x === desiredPosition.x && passedPosition.y === desiredPosition.y) {
+            if (this.tileEmptyIsOccupiedByOpp(passedPosition, boardState, team)) {
+              return true;
+            }
+          } else {
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              console.log("illegal move");
+              break;
+            }
+          }
+        }
+        //bottom left movement
+        if (desiredPosition.x < initialPosition.x && desiredPosition.y < initialPosition.y) {
+          let passedPosition = { x: initialPosition.x - i, y: initialPosition.y - i };
+          if (passedPosition.x === desiredPosition.x && passedPosition.y === desiredPosition.y) {
+            if (this.tileEmptyIsOccupiedByOpp(passedPosition, boardState, team)) {
+              return true;
+            }
+          } else {
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              console.log("illegal move");
+              break;
             }
           }
         }
