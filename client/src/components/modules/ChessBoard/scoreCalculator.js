@@ -1,29 +1,27 @@
 import { PieceType } from "./constants";
 
-export function calculateScore(pieces) {
+export function calculateScore(pieces, team, userData) {
   const score = 0;
   for (let piece in pieces) {
-    switch (piece.type) {
-      case PieceType.pawn:
-        value = 
-        score; // this is where we would need to get from api the value of a pawn
-        break;
-      case PieceType.knight:
-        score; // this is where we would need to get from api the value of a pawn
-        break;
-      case PieceType.bishop:
-        score; // this is where we would need to get from api the value of a pawn
-        break;
-      case PieceType.rook:
-        score; // this is where we would need to get from api the value of a pawn
-        break;
-      case PieceType.queen:
-        score; // this is where we would need to get from api the value of a pawn
-        break;
-      case PieceType.king:
-        score; // this is where we would need to get from api the value of a pawn
-        break;
+    if (piece.type === PieceType.pawn && piece.team === team) {
+      value = userData.pawnlevel;
+      score += value; // this is where we would need to get from api the value of a pawn
+    } else if (piece.type === PieceType.knight && piece.team === team) {
+      value = userData.knightlevel;
+      score += value; // this is where we would need to get from api the value of a pawn
+    } else if (piece.type === PieceType.bishop && piece.team === team) {
+      value = userData.bishoplevel;
+      score += value;
+    } else if (piece.type === PieceType.rook && piece.team === team) {
+      value = userData.rooklevel;
+      score += value;
+    } else if (piece.type === PieceType.queen && piece.team === team) {
+      value = userData.queenlevel;
+      score += value;
+    } else if (piece.type === PieceType.king && piece.team === team) {
+      value = userData.kinglevel;
+      score += value;
     }
   }
-  return points;
+  return score;
 }

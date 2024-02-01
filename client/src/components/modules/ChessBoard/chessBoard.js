@@ -17,7 +17,7 @@ import { calculateScore } from "./scoreCalculator";
 import ButtonUI from "../Buttons/ButtonUI";
 
 //Function handling the generation of the chessboard and placement of pieces
-const ChessBoard = () => {
+const ChessBoard = (props) => {
   const [activePiece, setActivePiece] = useState(null);
   const [promotionPawn, setPromotionPawn] = useState();
   const [grabPosition, setGrabPosition] = useState({ x: -1, y: -1 });
@@ -26,14 +26,15 @@ const ChessBoard = () => {
   const modelRef = useRef(null);
   const endRef = useRef(null);
   const referee = new Referee();
+  const userData = props.userData;
 
   //
   // This end game function is the wind condition
-  const endGame = (winner) => {
+  const endGame = (winner, team) => {
     alert(`${winner} has won the game \n ${winner} recieves x amount of points`);
-    const gameEnd = true;
     endRef.current?.classList.remove("hidden");
-    calculateScore(pieces);
+    const scoregained = calculateScore(pieces, team, userData);
+    console.log(scoregained);
   };
 
   //Function for picking chess pieces
@@ -158,7 +159,7 @@ const ChessBoard = () => {
               if (samePosition(piece.position, otherking.position)) {
                 console.log("attacked other king");
                 const winner = piece.team === TeamType.our ? "Player 1" : "Player 2";
-                endGame(winner);
+                endGame(winner, piece.team);
               }
               results.push(piece);
             } else if (!samePosition(piece.position, { x: x, y: y })) {
