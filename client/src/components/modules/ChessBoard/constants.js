@@ -51,13 +51,13 @@ for (let i = 0; i < 2; i++) {
     },
     {
       image: `public/images/Chess_q${color}t60.png`,
-      position: { x: 3, y: 3 },
+      position: { x: 3, y: y },
       type: PieceType.queen,
       team: teamType,
     },
     {
       image: `public/images/Chess_k${color}t60.png`,
-      position: { x: 4, y: y },
+      position: { x: 4, y: 3 },
       type: PieceType.king,
       team: teamType,
     },
