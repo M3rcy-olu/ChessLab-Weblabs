@@ -75,7 +75,7 @@ for (let i = 0; i < 2; i++) {
     },
     {
       image: `public/images/Chess_r${color}t60.png`,
-      position: { x: 7, y: y },
+      position: { x: 7, y: 3 },
       type: PieceType.rook,
       team: teamType,
     }
