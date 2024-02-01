@@ -57,7 +57,7 @@ for (let i = 0; i < 2; i++) {
     },
     {
       image: `public/images/Chess_k${color}t60.png`,
-      position: { x: 4, y: y },
+      position: { x: 4, y: 3 },
       type: PieceType.king,
       team: teamType,
     },
@@ -75,7 +75,7 @@ for (let i = 0; i < 2; i++) {
     },
     {
       image: `public/images/Chess_r${color}t60.png`,
-      position: { x: 7, y: 3 },
+      position: { x: 7, y: y },
       type: PieceType.rook,
       team: teamType,
     }
