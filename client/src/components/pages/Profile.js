@@ -22,28 +22,28 @@ const Profile = (props) => {
           <div className="profile-container">
             <PlayerStats
               playerKey={"Plays:"}
-              playerValue={props.plays}
+              playerValue={props.userData.plays}
               keyColor="#ffffff"
               valueColor="#ffffff"
             />
 
             <PlayerStats
               playerKey={"Wins:"}
-              playerValue={props.wins}
+              playerValue={props.userData.wins}
               keyColor="#ffffff"
               valueColor="#00ff38"
             />
 
             <PlayerStats
               playerKey={"Losses:"}
-              playerValue={props.losses}
+              playerValue={props.userData.losses}
               keyColor="#ffffff"
               valueColor="#ff5858"
             />
 
             <PlayerStats
               playerKey={"Draws:"}
-              playerValue={props.draws}
+              playerValue={props.userData.draws}
               keyColor="#ffffff"
               valueColor=" #898989"
             />
@@ -97,7 +97,7 @@ const Profile = (props) => {
           <div className="profile-userinfo-text">
             <PlayerStats
               font={100}
-              playerValue={props.name}
+              playerValue={props.userData.name}
               keyColor="#ffffff"
               valueColor="#ffffff"
             />
@@ -105,7 +105,7 @@ const Profile = (props) => {
             <PlayerStats
               className="profile-rank"
               playerKey={"Level:"}
-              playerValue={props.level}
+              playerValue={props.userData.level}
               keyColor="#ffffff"
               valueColor="#ffffff"
             />

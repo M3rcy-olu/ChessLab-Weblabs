@@ -9,6 +9,10 @@ const UserSchema = new mongoose.Schema({
   wins: Number,
   losses: Number,
   draws: Number,
+  levelPawn: { type: Number, default: 1 },
+  levelQueen: { type: Number, default: 1 },
+  levelKing: { type: Number, default: 1 },
+  levelKnight: { type: Number, default: 1 },
 });
 
 UserSchema.methods.updatePoints = function (points) {

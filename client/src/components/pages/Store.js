@@ -4,11 +4,11 @@ import StoreButton from "../modules/Buttons/Store-Buttons/StoreButton";
 import "./Store.css";
 import { post } from "../../utilities";
 
-const Store = () => {
-  const [levelpawn, addLevelpawn] = useState(0);
-  const [levelqueen, addLevelqueen] = useState(0);
-  const [levelking, addLevelking] = useState(0);
-  const [levelknight, addlevelknight] = useState(0);
+const Store = (userId) => {
+  const [levelpawn, addLevelpawn] = useState(1);
+  const [levelqueen, addLevelqueen] = useState(1);
+  const [levelking, addLevelking] = useState(1);
+  const [levelknight, addlevelknight] = useState(1);
 
   const updatePoints = async (points) => {
     points = Number(points);
@@ -24,6 +24,25 @@ const Store = () => {
     }
     console.log("Points updated!");
     console.log(points);
+  };
+
+  const updateLevels = async () => {
+    try {
+      const data = await post("/api/updateLevels", {
+        userId: userId,
+        levelPawn: levelpawn,
+        levelQueen: levelqueen,
+        levelKing: levelking,
+        levelKnight: levelknight,
+      });
+      if (data.error) {
+        console.error("Error updating levels:", data.error);
+      } else {
+        console.log("Levels updated!");
+      }
+    } catch (error) {
+      console.error("Error updating levels:", error);
+    }
   };
 
   const hellop = () => {
