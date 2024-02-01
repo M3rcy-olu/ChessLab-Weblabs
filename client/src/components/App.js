@@ -52,24 +52,6 @@ const App = () => {
     post("/api/logout");
   };
 
-  const [winsCount, setWinsCount] = useState(winsCount);
-  const addWin = (currentCount) => {
-    setWinsCount(currentCount + 1);
-  };
-
-  const [lossesCount, setLossesCount] = useState(lossesCount);
-  const addLoss = () => {
-    setLossesCount(lossesCount + 1);
-    alert("It worked!");
-  };
-
-  const [playsCount, setplaysCount] = useState(0);
-  const addPlay = () => {
-    setplaysCount(playsCount + 1);
-    alert("It worked!");
-    // We need to post this and get the value of the one on the Database
-  };
-
   return (
     <div id="app">
       <Routes>
@@ -85,30 +67,8 @@ const App = () => {
           }
         />
         <Route path="*" element={<NotFound />} />
-        <Route path="Battle" element={<Battle />} />
-        <Route
-          path="Profile"
-          element={
-            <Profile
-              plays={(userData && userData.plays) || 0}
-              wins={(userData && userData.wins) || 0}
-              losses={(userData && userData.losses) || 0}
-              draws={(userData && userData.draws) || 0}
-              level={(userData && userData.draws) || 0}
-              name={(userData && userData.name) || "Player"}
-              pawnLevel={(userData && userData.pawnLevel) || 0}
-              bishopLevel={(userData && userData.bishopLevel) || 0}
-              knightLevel={(userData && userData.knightLevel) || 0}
-              rookLevel={(userData && userData.rookLevel) || 0}
-              queenLevel={(userData && userData.queenLevel) || 0}
-              profileImage={
-                (userData && userData.profileImage) ||
-                "https://easydrawingguides.com/wp-content/uploads/2017/04/how-to-draw-goku-featured-image-1200.png"
-              }
-              func3={addLoss}
-            />
-          }
-        />
+        <Route path="Battle" element={<Battle userData={userData} />} />
+        <Route path="Profile" element={<Profile userData={userData} />} />
         <Route path="Store" element={<Store userId={userId} />} />
       </Routes>
       <NavBar points={(userData && userData.points) || 0} />
