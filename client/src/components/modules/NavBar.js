@@ -34,19 +34,19 @@ const NavBar = (props) => {
 
       <div className="NavBar-linkContainer">
         <Link to="/" className="NavBar-Link-Home">
-          <ButtonUI text="Home" width={80} />
+          <ButtonUI text="Home" width={150} />
         </Link>
 
         <Link to="/Profile" className="NavBar-Link-Profile">
-          <ButtonUI text="Profile" width={65} />
+          <ButtonUI text="Profile" width={120} left={75} />
         </Link>
 
         <Link to="/Battle" className="NavBar-Link-Battle">
-          <ButtonUI text="Battle" width={50} />
+          <ButtonUI text="Battle" width={120} left={105} />
         </Link>
 
         <Link to="/Store" className="NavBar-Link-Store">
-          <ButtonUI text="Store" width={40} />
+          <ButtonUI text="Store" width={90} left={145} />
         </Link>
         <Link to="/Store" className="NavBar-Link-Money">
           <ButtonUI text={"$" + points} width={70} textAlign="right" textColor="#00ff38" />
