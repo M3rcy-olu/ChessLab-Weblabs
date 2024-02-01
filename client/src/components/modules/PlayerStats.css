@@ -1,0 +1,10 @@
+.stats {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+  align-items: center;
+  text-align: right;
+  z-index: 1000;
+  margin: 10%;
+}

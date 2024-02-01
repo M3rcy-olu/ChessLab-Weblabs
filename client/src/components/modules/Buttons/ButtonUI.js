@@ -37,6 +37,7 @@ const ButtonUI = (props) => {
           left: props.left + "%",
           right: props.right + "%",
           width: props.width + "%",
+          height: props.height,
           top: props.top + "%",
           textAlign: props.textAlign,
           color: props.textColor,
