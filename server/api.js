@@ -73,19 +73,19 @@ router.get("/getPoints", async (req, res) => {
   }
 });
 
-app.post("/api/updateLevels", (req, res) => {
-  const { userId, levelPawn, levelQueen, levelKing, levelKnight } = req.body;
-  User.findById(userId)
-    .then((user) => {
-      user.levelPawn = levelPawn;
-      user.levelQueen = levelQueen;
-      user.levelKing = levelKing;
-      user.levelKnight = levelKnight;
-      return user.save();
-    })
-    .then(() => res.send({ success: true }))
-    .catch((error) => res.status(500).send({ error: error.message }));
-});
+// app.post("/api/updateLevels", (req, res) => {
+//   const { userId, levelPawn, levelQueen, levelKing, levelKnight } = req.body;
+//   User.findById(userId)
+//     .then((user) => {
+//       user.levelPawn = levelPawn;
+//       user.levelQueen = levelQueen;
+//       user.levelKing = levelKing;
+//       user.levelKnight = levelKnight;
+//       return user.save();
+//     })
+//     .then(() => res.send({ success: true }))
+//     .catch((error) => res.status(500).send({ error: error.message }));
+// });
 
 // |------------------------------|
 // | write your API methods below!|
