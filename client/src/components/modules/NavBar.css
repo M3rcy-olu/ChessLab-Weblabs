@@ -56,24 +56,24 @@
 
 .NavBar-Link-Profile {
   position: absolute;
-  left: 10.33%;
-  right: 76.62%;
+  left: 17.33%;
+  right: 69.62%;
   top: 46.2%;
   bottom: 12.5%;
 }
 
 .NavBar-Link-Battle {
   position: absolute;
-  left: 20.33%;
-  right: 62.15%;
+  left: 33.33%;
+  right: 46.15%;
   top: 46.2%;
   bottom: 12.5%;
 }
 
 .NavBar-Link-Store {
   position: absolute;
-  left: 30.33%;
-  right: 47.69%;
+  left: 51.33%;
+  right: 29.69%;
   top: 46.2%;
   bottom: 12.5%;
 }
