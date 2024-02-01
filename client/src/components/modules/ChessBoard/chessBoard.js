@@ -29,13 +29,17 @@ const ChessBoard = (props) => {
   const userData = props.userData;
 
   //
-  // This end game function is the wind condition
+  //
+  // This end game function is run when a win condition is met
   const endGame = (winner, team) => {
     alert(`${winner} has won the game \n ${winner} recieves x amount of points`);
     endRef.current?.classList.remove("hidden");
     const scoregained = calculateScore(pieces, team, userData);
     console.log(scoregained);
   };
+  //
+  //
+  //
 
   //Function for picking chess pieces
   const grabPiece = (e) => {

@@ -1,7 +1,7 @@
 import { PieceType } from "./constants";
 
 export function calculateScore(pieces, team, userData) {
-  const score = 0;
+  let score = 0;
   for (let piece in pieces) {
     if (piece.type === PieceType.pawn && piece.team === team) {
       value = userData.pawnlevel;
