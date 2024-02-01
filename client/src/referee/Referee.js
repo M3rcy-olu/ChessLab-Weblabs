@@ -310,3 +310,7 @@ class Referee {
 }
 
 export default Referee;
+
+//look for checks --> if a move keeps you in check it is invalid
+//perhaps use the king to do this 
+//implement checkmate

@@ -5,3 +5,52 @@
   width: 600px;
   height: 600px;
 }
+
+#game-end-screen {
+  position: absolute;
+  background-color: #a7a7a7ac;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+#game-end-screen.hidden {
+  display: none;
+}
+
+#pawn-promotion-model {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+#pawn-promotion-model.hidden {
+  display: none;
+}
+
+#pawn-promotion-model > .model-body {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 300px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+  width: 600px;
+  background-color: #a7a7a7ac;
+}
+
+#pawn-promotion-model > .model-body > img {
+  border-radius: 50%;
+  padding: 20px;
+  height: 120px;
+}
+
+#pawn-promotion-model > .model-body > img:hover {
+  background-color: #aeaaaacd;
+  cursor: pointer;
+}
