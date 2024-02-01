@@ -1,7 +1,11 @@
 .store {
   display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  /* grid-template-rows: repeat(1, 0.5fr); */
+  gap: 150px;
   place-content: center;
   position: fixed;
+  top: 100px;
   height: 100%;
   width: 100%;
   background-color: var(--background);

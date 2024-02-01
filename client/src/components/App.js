@@ -71,7 +71,7 @@ const App = () => {
         <Route path="Profile" element={<Profile level={12} />} />
         <Route path="Store" element={<Store />} />
       </Routes>
-      <NavBar points={(userData && userData.points) || 0} />
+      {/* <NavBar points={(userData && userData.points) || 0} /> */}
     </div>
   );
 };

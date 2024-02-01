@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import "./Buttons/ButtonUI";
 import ButtonUI from "./Buttons/ButtonUI";
+import { get, post } from "../../utilities";
 
 const NavBar = (props) => {
-  const points = props.points;
+  const [points, setPoints] = useState(0);
+
+  useEffect(() => {
+    fetchPoints();
+
+    const intervalId = setInterval(fetchPoints, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const fetchPoints = async () => {
+    try {
+      const data = await get("/api/getPoints");
+      if (data.error) {
+        console.error("Error fetching points:", data.error);
+      } else {
+        setPoints(data.points);
+      }
+    } catch (error) {
+      console.error("Error fetching points:", error);
+    }
+  };
   return (
     <nav className="NavBar-Container">
       <div className="NavBar-Title">Chess Capital | Chess with Capitalism</div>

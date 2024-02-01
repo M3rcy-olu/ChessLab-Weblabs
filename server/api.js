@@ -38,19 +38,39 @@ router.post("/initsocket", (req, res) => {
     socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
   res.send({});
 });
+router.use((req, res, next) => {
+  console.log(req.user);
+  next();
+});
 
-router.post("/updatePoints", (req, res) => {
+router.post("/updatePoints", async (req, res) => {
   if (!req.user) {
     return res.status(401).send({ error: "Not logged in" });
   }
-  User.updatePoints(req.user._id, req.body.points)
-    .then((updatedUser) => {
-      res.send(updatedUser);
-    })
-    .catch((error) => {
-      console.error("Error updating points:", error);
-      res.status(500).send({ error: "Error updating points" });
-    });
+  const points = req.body.points;
+
+  try {
+    const user = await User.findById(req.user._id);
+    const updatedUser = await user.updatePoints(points);
+    res.send(updatedUser);
+  } catch (error) {
+    console.error("Error updating points:", error);
+    res.status(500).send({ error: `Error updating points: ${error.message}` });
+  }
+});
+
+router.get("/getPoints", async (req, res) => {
+  if (!req.user) {
+    return res.status(401).send({ error: "Not logged in" });
+  }
+
+  try {
+    const user = await User.findById(req.user._id);
+    res.send({ points: user.points });
+  } catch (error) {
+    console.error("Error getting points:", error);
+    res.status(500).send({ error: `Error getting points: ${error.message}` });
+  }
 });
 
 // |------------------------------|

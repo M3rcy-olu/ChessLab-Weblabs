@@ -11,10 +11,8 @@ const UserSchema = new mongoose.Schema({
   draws: Number,
 });
 
-// compile model from schema
-module.exports = mongoose.model("user", UserSchema);
-
 UserSchema.methods.updatePoints = function (points) {
   this.points += points;
   return this.save();
 };
+module.exports = mongoose.model("user", UserSchema);
