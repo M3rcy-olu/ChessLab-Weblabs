@@ -6,7 +6,9 @@ import NavBar from "../modules/NavBar";
 const Battle = () => {
   return (
     <div className="Battle">
-      <div className="navBar">{/* <NavBar /> */}</div>
+      <div className="navBar">
+        <NavBar />
+      </div>
       <div>
         <ChessBoard />
       </div>

@@ -6,6 +6,7 @@ import ButtonUI from "../modules/Buttons/ButtonUI";
 const Profile = (props) => {
   return (
     <div className="profile">
+      <NavBar />
       <ButtonUI
         ButtonClass="default"
         text="Hello!"
