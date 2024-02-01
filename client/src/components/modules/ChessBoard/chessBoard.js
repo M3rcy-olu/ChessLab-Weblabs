@@ -13,6 +13,7 @@ import {
   samePosition,
   setboard,
 } from "./constants";
+import { calculateScore } from "./scoreCalculator";
 import ButtonUI from "../Buttons/ButtonUI";
 
 //Function handling the generation of the chessboard and placement of pieces
@@ -26,10 +27,13 @@ const ChessBoard = () => {
   const endRef = useRef(null);
   const referee = new Referee();
 
+  //
+  // This end game function is the wind condition
   const endGame = (winner) => {
     alert(`${winner} has won the game \n ${winner} recieves x amount of points`);
     const gameEnd = true;
     endRef.current?.classList.remove("hidden");
+    calculateScore(pieces);
   };
 
   //Function for picking chess pieces
@@ -235,7 +239,7 @@ const ChessBoard = () => {
         <ButtonUI
           func={() => {
             setPieces([]);
-            setPieces(setboard())
+            setPieces(setboard());
             endRef.current?.classList.add("hidden");
           }}
           pos="absolute"

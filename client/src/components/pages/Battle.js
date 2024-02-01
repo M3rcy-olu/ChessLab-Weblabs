@@ -3,7 +3,8 @@ import ChessBoard from "../modules/ChessBoard/chessBoard";
 import "./Battle.css";
 import NavBar from "../modules/NavBar";
 
-const Battle = () => {
+const Battle = (props) => {
+  const userData = props.userData;
   return (
     <div className="Battle">
       <div className="navBar">
