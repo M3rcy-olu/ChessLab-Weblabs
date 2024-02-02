@@ -19,4 +19,15 @@ UserSchema.methods.updatePoints = function (points) {
   this.points += points;
   return this.save();
 };
+
+UserSchema.methods.updateLevels = function (levels) {
+  this.levelPawn = levels.levelPawn;
+  this.levelQueen = levels.levelQueen;
+  this.levelKing = levels.levelKing;
+  this.levelKnight = levels.levelKnight;
+  this.levelRook = levels.levelRook;
+  this.levelBishop = levels.levelBishop;
+
+  return this.save();
+};
 module.exports = mongoose.model("user", UserSchema);
