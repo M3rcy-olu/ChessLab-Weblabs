@@ -92,7 +92,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="Battle" element={<Battle userData={userData} />} />
         <Route path="Profile" element={<Profile userData={userData} />} />
-        <Route path="Store" element={<Store userId={userId} />} />
+        <Route path="Store" element={<Store userId={userId} loadLevels={loadLevels} />} />
       </Routes>
       <NavBar points={(userData && userData.points) || 0} />
     </div>

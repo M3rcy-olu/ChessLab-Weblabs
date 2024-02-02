@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../modules/NavBar";
 import StoreButton from "../modules/Buttons/Store-Buttons/StoreButton";
 import "./Store.css";
 import { post } from "../../utilities";
 
-const Store = (userId) => {
+const Store = (props) => {
+  const { userId, loadLevels } = props;
   const [levelpawn, addLevelpawn] = useState(1);
   const [levelqueen, addLevelqueen] = useState(1);
   const [levelking, addLevelking] = useState(1);
   const [levelknight, addLevelknight] = useState(1);
   const [levelrook, addLevelrook] = useState(1);
   const [levelbishop, addLevelbishop] = useState(1);
+
+  useEffect(() => {
+    loadLevels();
+  }, []);
 
   const updatePoints = async (points) => {
     points = Number(points);
