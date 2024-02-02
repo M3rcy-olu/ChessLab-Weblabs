@@ -6,7 +6,7 @@ import { post } from "../../utilities";
 
 const Store = (props) => {
   const { userId, loadLevels } = props;
-  const [levelpawn, addLevelpawn] = useState(loadLevels.levelPawn);
+  const [levelpawn, addLevelpawn] = useState(1);
   const [levelqueen, addLevelqueen] = useState(1);
   const [levelking, addLevelking] = useState(1);
   const [levelknight, addLevelknight] = useState(1);
@@ -63,7 +63,7 @@ const Store = (props) => {
     alert("Purchased!");
   };
   const helloq = async () => {
-    const newLevel = levelpawn + 1;
+    const newLevel = levelqueen + 1;
     addLevelqueen(newLevel);
     updatePoints(10);
     updateLevels({ levelQueen: newLevel });
@@ -71,7 +71,7 @@ const Store = (props) => {
   };
 
   const hellok = async () => {
-    const newLevel = levelpawn + 1;
+    const newLevel = levelking + 1;
     addLevelking(newLevel);
     updatePoints(100);
     updateLevels({ levelKing: newLevel });
@@ -79,7 +79,7 @@ const Store = (props) => {
   };
 
   const hellon = async () => {
-    const newLevel = levelpawn + 1;
+    const newLevel = levelknight + 1;
     addLevelknight(newLevel);
     updatePoints(100);
     updateLevels({ levelKnight: newLevel });
@@ -88,7 +88,7 @@ const Store = (props) => {
   };
 
   const hellob = async () => {
-    const newLevel = levelpawn + 1;
+    const newLevel = levelbishop + 1;
     addLevelbishop(newLevel);
     updatePoints(100);
     updateLevels({ levelBishop: newLevel });
@@ -96,7 +96,7 @@ const Store = (props) => {
   };
 
   const hellor = async () => {
-    const newLevel = levelpawn + 1;
+    const newLevel = levelrook + 1;
     addLevelrook(newLevel);
     updatePoints(100);
     updateLevels({ levelRook: newLevel });
