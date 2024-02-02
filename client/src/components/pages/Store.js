@@ -6,7 +6,7 @@ import { post } from "../../utilities";
 
 const Store = (props) => {
   const { userId, loadLevels } = props;
-  const [levelpawn, addLevelpawn] = useState(1);
+  const [levelpawn, addLevelpawn] = useState(loadLevels.levelPawn);
   const [levelqueen, addLevelqueen] = useState(1);
   const [levelking, addLevelking] = useState(1);
   const [levelknight, addLevelknight] = useState(1);
@@ -58,7 +58,7 @@ const Store = (props) => {
     const newLevel = levelpawn + 1;
     addLevelpawn(newLevel);
     updatePoints(10);
-    updateLevels({ levelPawn: newLevel });
+    updateLevels();
 
     alert("Purchased!");
   };
