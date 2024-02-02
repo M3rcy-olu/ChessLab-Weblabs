@@ -43,6 +43,32 @@ router.use((req, res, next) => {
   next();
 });
 
+router.get("/user", async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    res.send(user);
+  } catch (error) {
+    console.error("Error getting user:", error);
+    res.status(500).send({ error: `Error getting user: ${error.message}` });
+  }
+});
+
+//   if (!req.user) {
+//     return res.status(401).send({ error: "Not logged in" });
+//   }
+
+//   try {
+//     const user = await User.findById(req.user._id);
+//     res.send({ user: user });
+//   } catch (error) {
+//     console.error("Error getting points:", error);
+//     res.status(500).send({ error: `Error getting points: ${error.message}` });
+//   }
+// });
+
 router.post("/updatePoints", async (req, res) => {
   if (!req.user) {
     return res.status(401).send({ error: "Not logged in" });
@@ -86,6 +112,7 @@ router.post("/api/updateLevels", (req, res) => {
     .then(() => res.send({ success: true }))
     .catch((error) => res.status(500).send({ error: error.message }));
 });
+
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
