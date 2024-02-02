@@ -49,46 +49,52 @@ const Store = (userId) => {
     }
   };
 
-  const hellop = () => {
-    addLevelpawn(levelpawn + 1);
+  const hellop = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelpawn(newLevel);
     updatePoints(10);
-    updateLevels({ levelPawn: levelpawn + 1 });
+    updateLevels({ levelPawn: newLevel });
 
     alert("Purchased!");
   };
-  const helloq = () => {
-    addLevelqueen(levelqueen + 1);
+  const helloq = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelqueen(newLevel);
     updatePoints(10);
-    updateLevels({ levelQueen: levelqueen + 1 });
+    updateLevels({ levelQueen: newLevel });
     alert("Purchased!");
   };
 
-  const hellok = () => {
-    addLevelking(levelking + 1);
+  const hellok = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelking(newLevel);
     updatePoints(100);
-    updateLevels({ levelKing: levelking + 1 });
+    updateLevels({ levelKing: newLevel });
     alert("Purchased!");
   };
 
-  const hellon = () => {
-    addLevelknight(levelknight + 1);
+  const hellon = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelknight(newLevel);
     updatePoints(100);
-    updateLevels({ levelKnight: levelknight + 1 });
+    updateLevels({ levelKnight: newLevel });
 
     alert("Purchased!");
   };
 
-  const hellob = () => {
-    addLevelbishop(levelbishop + 1);
+  const hellob = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelbishop(newLevel);
     updatePoints(100);
-    updateLevels({ levelBishop: levelbishop + 1 });
+    updateLevels({ levelBishop: newLevel });
     alert("Purchased!");
   };
 
-  const hellor = () => {
-    addLevelrook(levelrook + 1);
+  const hellor = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelrook(newLevel);
     updatePoints(100);
-    updateLevels({ levelRook: levelrook + 1 });
+    updateLevels({ levelRook: newLevel });
     alert("Purchased!");
   };
   return (
