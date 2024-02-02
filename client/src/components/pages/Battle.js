@@ -11,7 +11,7 @@ const Battle = (props) => {
         <NavBar />
       </div>
       <div>
-        <ChessBoard />
+        <ChessBoard userData={userData} />
       </div>
     </div>
   );

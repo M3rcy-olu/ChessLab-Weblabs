@@ -16,6 +16,7 @@ import {
 } from "./constants";
 import { calculateScore } from "./scoreCalculator";
 import ButtonUI from "../Buttons/ButtonUI";
+import { post } from "../../../utilities";
 
 //Function handling the generation of the chessboard and placement of pieces
 const ChessBoard = (props) => {
@@ -32,11 +33,29 @@ const ChessBoard = (props) => {
   //
   //
   // This end game function is run when a win condition is met
+
+  const updatePoints = async (points) => {
+    points = Number(points);
+    try {
+      const data = await post("/api/updatePoints", { points: points });
+      if (data.error) {
+        alert("Error updating points: " + data.error);
+      } else {
+        alert("Points updated!");
+      }
+    } catch (error) {
+      console.error("Error updating points:", error);
+    }
+    console.log("Points updated!");
+    console.log(points);
+  };
+
   const endGame = (winner, team) => {
     endRef.current?.classList.remove("hidden");
     const scoregained = calculateScore(pieces, team, userData);
     console.log(scoregained);
     alert(`${winner} has won the game \n ${winner} recieves ${scoregained} amount of points`);
+    updatePoints(scoregained);
   };
   //
   //
