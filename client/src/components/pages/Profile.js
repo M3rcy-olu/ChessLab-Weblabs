@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import NavBar from "../modules/NavBar";
 import ButtonUI from "../modules/Buttons/ButtonUI";
 import PlayerStats from "../modules/PlayerStats";
+import { post, get } from "../../utilities";
 
-const Profile = (props) => {
+const Profile = () => {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    get("/api/user")
+      .then((data) => setUserData(data))
+      .catch((error) => console.error("Error:", error));
+  }, []);
+
+  if (!userData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="profile">
       <NavBar />
-      <ButtonUI
+      {/* <ButtonUI
         ButtonClass="default"
         text="Hello!"
         pos="absolute"
@@ -17,34 +30,34 @@ const Profile = (props) => {
         right={0}
         width={100}
         clickable={true}
-      />
+      /> */}
       <div className="profile-info">
         <div className="profile-stats">
           <div className="profile-container">
             <PlayerStats
               playerKey={"Plays:"}
-              playerValue={props.plays}
+              playerValue={userData.plays}
               keyColor="#ffffff"
               valueColor="#ffffff"
             />
 
             <PlayerStats
               playerKey={"Wins:"}
-              playerValue={props.wins}
+              playerValue={userData.wins}
               keyColor="#ffffff"
               valueColor="#00ff38"
             />
 
             <PlayerStats
               playerKey={"Losses:"}
-              playerValue={props.losses}
+              playerValue={userData.losses}
               keyColor="#ffffff"
               valueColor="#ff5858"
             />
 
             <PlayerStats
               playerKey={"Draws:"}
-              playerValue={props.draws}
+              playerValue={userData.draws}
               keyColor="#ffffff"
               valueColor=" #898989"
             />
@@ -59,35 +72,35 @@ const Profile = (props) => {
               <PlayerStats
                 playerKey={"Pawn:"}
                 font={15}
-                playerValue={props.pawnLevel}
+                playerValue={userData.levelPawn}
                 keyColor="#898989"
                 valueColor=" #898989"
               />
               <PlayerStats
                 playerKey={"Bishop:"}
                 font={15}
-                playerValue={props.bishopLevel}
+                playerValue={userData.levelBishop}
                 keyColor="#898989"
                 valueColor=" #898989"
               />
               <PlayerStats
                 playerKey={"Knight:"}
                 font={15}
-                playerValue={props.knightLevel}
+                playerValue={userData.levelKnight}
                 keyColor="#898989"
                 valueColor=" #898989"
               />
               <PlayerStats
                 playerKey={"Rook:"}
                 font={15}
-                playerValue={props.rookLevel}
+                playerValue={userData.levelRook}
                 keyColor="#898989"
                 valueColor=" #898989"
               />
               <PlayerStats
                 playerKey={"Queen:"}
                 font={15}
-                playerValue={props.queenLevel}
+                playerValue={userData.levelQueen}
                 keyColor="#898989"
                 valueColor=" #898989"
               />
@@ -98,7 +111,7 @@ const Profile = (props) => {
           <div className="profile-userinfo-text">
             <PlayerStats
               font={100}
-              playerValue={props.name}
+              playerValue={userData.name}
               keyColor="#ffffff"
               valueColor="#ffffff"
             />
@@ -106,19 +119,19 @@ const Profile = (props) => {
             <PlayerStats
               className="profile-rank"
               playerKey={"Level:"}
-              playerValue={props.level}
+              playerValue={userData.level}
               keyColor="#ffffff"
               valueColor="#ffffff"
             />
             <PlayerStats
               className="profile-WinLoss"
               playerKey={"W/N Ratio:"}
-              playerValue={props.wins / props.losses}
+              playerValue={userData.wins / userData.losses}
               keyColor="#ffffff"
               valueColor="#ffffff"
             />
           </div>
-          <img className="profile-image" src={props.profileImage} />
+          <img className="profile-image" src={userData.profileImage} />
         </div>
       </div>
     </div>

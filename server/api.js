@@ -43,6 +43,32 @@ router.use((req, res, next) => {
   next();
 });
 
+router.get("/user", async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    res.send(user);
+  } catch (error) {
+    console.error("Error getting user:", error);
+    res.status(500).send({ error: `Error getting user: ${error.message}` });
+  }
+});
+
+//   if (!req.user) {
+//     return res.status(401).send({ error: "Not logged in" });
+//   }
+
+//   try {
+//     const user = await User.findById(req.user._id);
+//     res.send({ user: user });
+//   } catch (error) {
+//     console.error("Error getting points:", error);
+//     res.status(500).send({ error: `Error getting points: ${error.message}` });
+//   }
+// });
+
 router.post("/updatePoints", async (req, res) => {
   if (!req.user) {
     return res.status(401).send({ error: "Not logged in" });
@@ -73,19 +99,37 @@ router.get("/getPoints", async (req, res) => {
   }
 });
 
-router.post("/api/updateLevels", (req, res) => {
-  const { userId, levelPawn, levelQueen, levelKing, levelKnight } = req.body;
-  User.findById(userId)
-    .then((user) => {
-      user.levelPawn = levelPawn;
-      user.levelQueen = levelQueen;
-      user.levelKing = levelKing;
-      user.levelKnight = levelKnight;
-      return user.save();
-    })
-    .then(() => res.send({ success: true }))
-    .catch((error) => res.status(500).send({ error: error.message }));
+// router.post("/updateLevels", (req, res) => {
+//   const { userId, levelPawn, levelQueen, levelKing, levelKnight } = req.body;
+//   User.findById(userId)
+//     .then((user) => {
+//       user.levelPawn = levelPawn;
+//       user.levelQueen = levelQueen;
+//       user.levelKing = levelKing;
+//       user.levelKnight = levelKnight;
+//       user.levelRook = levelRook;
+//       user.levelBishop = levelBishop;
+//       return user.save();
+//     })
+//     .then(() => res.send({ success: true }))
+//     .catch((error) => res.status(500).send({ error: error.message }));
+// });
+
+router.post("/updateLevels", async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    const updatedUser = await user.updateLevels(req.body);
+    res.send(updatedUser);
+  } catch (error) {
+    console.error("Error updating levels:", error);
+    res.status(500).send({ error: `Error updating levels: ${error.message}` });
+  }
 });
+
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|

@@ -43,6 +43,7 @@ const App = () => {
       setUserId(user._id);
       setUserData(user);
       post("/api/initsocket", { socketid: socket.id });
+      loadLevels();
     });
   };
 
@@ -50,6 +51,28 @@ const App = () => {
     setUserId(undefined);
     setUserData({});
     post("/api/logout");
+  };
+
+  const loadLevels = async () => {
+    try {
+      const response = await fetch(`/api/user/${userId}`);
+      const data = await response.json();
+      if (data.error) {
+        console.error("Error loading levels:", data.error);
+      } else {
+        // Assuming you have a function to set each level
+        addLevelpawn(data.levelPawn);
+        addLevelqueen(data.levelQueen);
+        addLevelking(data.levelKing);
+        addLevelknight(data.levelKnight);
+        addLevelrook(data.levelRook);
+        addLevelbishop(data.levelBishop);
+
+        console.log("Levels loaded!");
+      }
+    } catch (error) {
+      console.error("Error loading levels:", error);
+    }
   };
 
   return (
@@ -69,7 +92,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="Battle" element={<Battle userData={userData} />} />
         <Route path="Profile" element={<Profile userData={userData} />} />
-        <Route path="Store" element={<Store userId={userId} />} />
+        <Route path="Store" element={<Store userId={userId} loadLevels={loadLevels} />} />
       </Routes>
       <NavBar points={(userData && userData.points) || 0} />
     </div>

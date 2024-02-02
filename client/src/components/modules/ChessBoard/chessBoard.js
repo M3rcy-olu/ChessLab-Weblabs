@@ -33,10 +33,10 @@ const ChessBoard = (props) => {
   //
   // This end game function is run when a win condition is met
   const endGame = (winner, team) => {
-    alert(`${winner} has won the game \n ${winner} recieves x amount of points`);
     endRef.current?.classList.remove("hidden");
     const scoregained = calculateScore(pieces, team, userData);
     console.log(scoregained);
+    alert(`${winner} has won the game \n ${winner} recieves ${scoregained} amount of points`);
   };
   //
   //

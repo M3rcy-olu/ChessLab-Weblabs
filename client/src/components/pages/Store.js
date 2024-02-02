@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../modules/NavBar";
 import StoreButton from "../modules/Buttons/Store-Buttons/StoreButton";
 import "./Store.css";
 import { post } from "../../utilities";
 
-const Store = (userId) => {
-  const [levelpawn, addLevelpawn] = useState(1);
+const Store = (props) => {
+  const { userId, loadLevels } = props;
+  const [levelpawn, addLevelpawn] = useState(loadLevels.levelPawn);
   const [levelqueen, addLevelqueen] = useState(1);
   const [levelking, addLevelking] = useState(1);
-  const [levelknight, addlevelknight] = useState(1);
+  const [levelknight, addLevelknight] = useState(1);
+  const [levelrook, addLevelrook] = useState(1);
+  const [levelbishop, addLevelbishop] = useState(1);
+
+  useEffect(() => {
+    loadLevels();
+  }, []);
 
   const updatePoints = async (points) => {
     points = Number(points);
@@ -34,6 +41,8 @@ const Store = (userId) => {
         levelQueen: levelqueen,
         levelKing: levelking,
         levelKnight: levelknight,
+        levelRook: levelrook,
+        levelBishop: levelbishop,
       });
       if (data.error) {
         console.error("Error updating levels:", data.error);
@@ -45,38 +54,57 @@ const Store = (userId) => {
     }
   };
 
-  const hellop = () => {
-    addLevelpawn(levelpawn + 1);
+  const hellop = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelpawn(newLevel);
     updatePoints(10);
+    updateLevels();
 
     alert("Purchased!");
   };
-  const helloq = () => {
-    addLevel(levelqueen + 1);
-    updatePoints(100);
+  const helloq = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelqueen(newLevel);
+    updatePoints(10);
+    updateLevels({ levelQueen: newLevel });
     alert("Purchased!");
   };
 
-  const hellok = () => {
-    addLevel(levelking + 1);
+  const hellok = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelking(newLevel);
     updatePoints(100);
+    updateLevels({ levelKing: newLevel });
     alert("Purchased!");
   };
 
-  const hellon = () => {
-    addLevel(levelking + 1);
+  const hellon = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelknight(newLevel);
     updatePoints(100);
+    updateLevels({ levelKnight: newLevel });
+
+    alert("Purchased!");
+  };
+
+  const hellob = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelbishop(newLevel);
+    updatePoints(100);
+    updateLevels({ levelBishop: newLevel });
+    alert("Purchased!");
+  };
+
+  const hellor = async () => {
+    const newLevel = levelpawn + 1;
+    addLevelrook(newLevel);
+    updatePoints(100);
+    updateLevels({ levelRook: newLevel });
     alert("Purchased!");
   };
   return (
     <div className="store">
       <NavBar />
-      <StoreButton
-        updatePoints={updatePoints}
-        image={require("../../public/images/Chess_plt60.png").default}
-        func2={hellop}
-        text2={"level " + levelpawn}
-      />
 
       <StoreButton
         updatePoints={updatePoints}
@@ -92,33 +120,27 @@ const Store = (userId) => {
       />
       <StoreButton
         updatePoints={updatePoints}
-        image={require("../../public/images/Chess_qlt60.png").default}
-        func2={helloq}
-        text2={"level " + levelqueen}
+        image={require("../../public/images/Chess_bdt60.png").default}
+        func2={hellob}
+        text2={"level " + levelbishop}
       />
 
       <StoreButton
         updatePoints={updatePoints}
         image={require("../../public/images/Chess_kdt60.png").default}
-        func2={helloq}
+        func2={hellok}
         text2={"level " + levelking}
       />
       <StoreButton
         updatePoints={updatePoints}
-        image={require("../../public/images/Chess_klt60.png").default}
-        func2={helloq}
-        text2={"level " + levelking}
+        image={require("../../public/images/Chess_rdt60.png").default}
+        func2={hellor}
+        text2={"level " + levelrook}
       />
 
       <StoreButton
         updatePoints={updatePoints}
         image={require("../../public/images/Chess_ndt60.png").default}
-        func2={hellon}
-        text2={"level " + levelknight}
-      />
-      <StoreButton
-        updatePoints={updatePoints}
-        image={require("../../public/images/Chess_nlt60.png").default}
         func2={hellon}
         text2={"level " + levelknight}
       />
